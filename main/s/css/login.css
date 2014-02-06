@@ -1,0 +1,178 @@
+@import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ul, ol, dl {
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;
+}
+h1 {
+	font-family: Arial, sans-serif;
+	font-size:16px;
+}
+h2 {
+	font-family: Arial, sans-serif;
+}
+a img {
+	border: none;
+}
+
+a:link {
+	color: #42413C;
+	text-decoration: underline;
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { 
+	text-decoration: none;
+}
+html {
+	direction: rtl;
+	background: #E3E3E3;
+	width: 100%;
+	z-index: -100;
+}
+#mainContent {
+	width: 1080px;
+	margin: 20px auto;
+	position: relative;
+}
+div#loginCard {
+	border: 1px solid #999;
+	background: #fafafa;
+	position: relative;
+	box-shadow: 0 3px 3px rgba(88,88,88,0.5);
+}
+div#loginCard::before {
+	content: "";
+	width: 1060px;
+	height: 100px;
+	border: 1px solid #999;
+	background: #fafafa;
+	position: absolute;
+	bottom: -8px;
+	right: 8px;
+	z-index: -1;
+	box-shadow: 0 2px 3px rgba(88,88,88,0.5);
+}
+div#loginCard::after {
+	content: "";
+	width: 1040px;
+	height: 100px;
+	border: 1px solid #999;
+	background: #fafafa;
+	position: absolute;
+	bottom: -15px;
+	right: 18px;
+	z-index: -2;
+	box-shadow: 0 0 3px rgba(88,88,88,0.5);
+}
+div#loginCard section {
+	display: inline-block;
+    vertical-align: top;
+	width: 530px;
+    height: inherit;
+    box-sizing: border-box;
+}
+#right {
+	border-left: 1px solid #999;
+}
+.no-cssgradients #right {
+	padding-left: 2px;
+	border-left: 1px solid #999;
+}
+#right img {
+	width: 250px;
+	margin: 20px auto;
+	display: block;
+}
+#right h1 {
+	text-align: center;
+	font-weight: bold;
+	font-family: "Exo 2", "Helvetica", "Helvetica Neue", "Alef Hebrew", Arial, sans-serif !important;
+	font-size: 72px;
+}
+#right span {
+	margin: 0;
+	padding: 0;
+}
+#left h1 {
+	color: #7f7f7f;
+	font-size: 40px;
+	text-align: center;
+	margin: 20px 0 40px;
+}
+#left input {
+	display: block;
+	margin: 10px auto;
+	width: 90%;
+	padding: 20px 10px;
+	font-size: 1.2em;
+	outline: none;
+	border-radius: 3px;
+	border: 1px solid #aaa;
+	color: #222;
+}
+#left input:last-child {
+	background: #FF9036;
+	width: 100px;
+	font-size: 1.6em;
+	padding: 8px 10px;
+	color: #ffffff;
+    border: none;
+	margin: 20px 414px 30px 0;
+    box-sizing: border-box;
+	cursor: pointer;
+    border-radius: 0;
+}
+#left input:last-child:hover {
+    opacity: 0.8;
+}
+#left input:last-child:active {
+	opacity: 0.6;
+}
+#left input:focus {
+	border: 1px solid #FF9036;
+	box-shadow: 0 0 2px #FF9036;
+}
+p {
+	margin-top: 20px;
+	text-align: center;
+	font-size: 0.7em;
+}
+p a:link,
+p a:visited,
+p a:active {
+	text-decoration: none;
+}
+p a:hover {
+	text-decoration: underline;
+}

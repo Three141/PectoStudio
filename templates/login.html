@@ -1,0 +1,31 @@
+<!DOCTYPE html>{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>כניסה - PectoStudio</title>
+    <link href='http://fonts.googleapis.com/css?family=Exo+2:200,400,700&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static "css/login.css" %}" type="text/css" media="screen">
+</head>
+<body>
+    <section id="mainContent">
+        <div id="loginCard">
+            <section id="right">
+                <img src="{% static "img/logo.png" %}" alt="PectoStudio">
+                <h1>
+                    <span style="color: #FF9036">Pecto</span><!--
+                 --><span style="color: #7f7f7f">Studio</span>
+                </h1>
+            </section>
+            <section id="left">
+                <h1>התחברות</h1>
+                <form method="post" action="">{% csrf_token %}
+                    <input type="text" name="username" placeholder="שם משתמש" autofocus autocomplete="off" required>
+                    <input type="password" name="password" placeholder="סיסמה" required>
+                    <input type="submit" value="התחבר">
+                </form>
+            </section>
+        </div>
+        <p><a href="#" onclick="alert('אנא פנה למורה או למנהל המערכת.')">שכחת את הסיסמה?</a></p>
+    </section>
+</body>
+</html>
