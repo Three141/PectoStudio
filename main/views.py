@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render, render_to_response
+from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login as d_login, logout as d_logout
 from forms import *
@@ -29,7 +29,6 @@ def index(req):
         'form': form,
         'bad_login': is_bad_login,
     })
-    return render(req, 'main.html')
 
 
 def home_logon(req):
@@ -82,6 +81,7 @@ def new_file(req, file_name):
     pfile = ProgramFile(name=file_name, owner=req.user)
     pfile.save()
     return HttpResponse(json.dumps({'success': True}), content_type="application/json")
+
 
 def delete_file(req, file_name):
     pfile = ProgramFile.objects.filter(owner=req.user, name=file_name)[0]

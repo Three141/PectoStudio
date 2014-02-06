@@ -1,10 +1,10 @@
-cData = null;
+var cData = null;
 
 $(document).ready(function () {
     $('#dialog-close-btn, #dialog-overlay').click(function () {
         cData = null;
         $('#dialog-overlay, #dialog-box').fadeOut(50);
-        $('#dialog-box #data').html("");
+        $('#data').html("");
         return false;
     });
     
@@ -15,7 +15,7 @@ $(document).ready(function () {
     });     
 });
 
-function popup(id, title, message) {
+function popup(title, message) {
     var maskHeight = $(document).height();
     var maskWidth = $(window).width();
     var dialogTop =  100;
@@ -37,6 +37,6 @@ function popup(id, title, message) {
 
     $('#dialog-overlay').css({height:maskHeight, width:maskWidth}).fadeIn(50);
     $('#dialog-box').css({top:dialogTop, left:dialogLeft}).fadeIn(200);
-    $('#dialog-box #title').html(title);
-    $('#dialog-box #message').html(message);
-};
+    $('#title').html(title);
+    $('#message').html(message);
+}

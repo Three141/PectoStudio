@@ -23,12 +23,12 @@
                             <li><a href="#" onclick="newFile()">{% trans "New file" %}</a></li>
                             <li><a href="#" onclick="saveFile()">{% trans "Save" %}</a></li>
                             <li><a href="#" onclick="deleteFile()">{% trans "Delete file" %}</a></li>
-                            <li><a href="logout/">{% trans "Logout" %}</a></li>
+                            <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                         </ul>
                     </li><li>
                         <a href="#">{% trans "Settings" %}</a>
                         <ul>
-                            <li><a href="#" onclick="popup(0,'בדיקה','שלום עולם!')">שלום עולם</a></li>
+                            <li><a href="#" onclick="popup('בדיקה','שלום עולם!')">שלום עולם</a></li>
                             <li><a href="#" onclick="printf(scanf('מה ברצונך לעשות?'))">דוגמאת פלט</a></li>
                             <li><a href="#">בדיקה 2</a></li>
                             <li><a href="#">בדיקה 2</a></li>
