@@ -1,11 +1,11 @@
-{% load static %}
-<!DOCTYPE html>
+<!DOCTYPE html>{% load static i18n %}
 <html>
     <head>
         <meta charset="utf-8">
-        <title>{% block title %}ראשי{% endblock %} - IDE</title>
+        <title>PectoStudio</title>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/main.css" %}">
+        <script src="{% url "django.views.i18n.javascript_catalog" %}"></script>
         <script src="{% static "js/jquery.js" %}"></script>
         <script src="{% static "js/ide_popups.js" %}"></script>
         <script src="{% static "js/ide_console.js" %}"></script>
@@ -18,15 +18,15 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#">קובץ</a>
+                        <a href="#">{% trans "File" %}</a>
                         <ul>
-                            <li><a href="#" onclick="newFile()">צור</a></li>
-                            <li><a href="#" onclick="saveFile()">שמור</a></li>
-                            <li><a href="#" onclick="deleteFile()">מחק</a></li>
-                            <li><a href="logout/">התנתק</a></li>
+                            <li><a href="#" onclick="newFile()">{% trans "New file" %}</a></li>
+                            <li><a href="#" onclick="saveFile()">{% trans "Save" %}</a></li>
+                            <li><a href="#" onclick="deleteFile()">{% trans "Delete file" %}</a></li>
+                            <li><a href="logout/">{% trans "Logout" %}</a></li>
                         </ul>
                     </li><li>
-                        <a href="#">הגדרות</a>
+                        <a href="#">{% trans "Settings" %}</a>
                         <ul>
                             <li><a href="#" onclick="popup(0,'בדיקה','שלום עולם!')">שלום עולם</a></li>
                             <li><a href="#" onclick="printf(scanf('מה ברצונך לעשות?'))">דוגמאת פלט</a></li>
@@ -37,14 +37,14 @@
                             <li><a href="#">בדיקה 2</a></li>
                         </ul>
                     </li><li>
-                        <a href="#">מראה</a>
+                        <a href="#">{% trans "Layout" %}</a>
                         <ul>
                             <li><a href="#">בדיקה 3</a></li>
                             <li><a href="#">בדיקה 3</a></li>
                             <li><a href="#">בדיקה 3</a></li>
                         </ul>
                     </li><li>
-                        <a href="#">אודות</a>
+                        <a href="#">{% trans "About" %}</a>
                         <ul>
                             <li><a href="#">בדיקה 4</a></li>
                             <li><a href="#">בדיקה 4</a></li>
@@ -72,7 +72,7 @@
             </script>
         </div>
         <footer>
-            <div id="cons-title">פלט / קלט</div>
+            <div id="cons-title">{% trans "Input / Output" %}</div>
             <textarea id="console" disabled></textarea>
         </footer>
     </body>

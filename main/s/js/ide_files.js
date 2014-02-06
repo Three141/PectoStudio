@@ -61,23 +61,23 @@ function saveFile() {
         async: false
     }).success(function(msg){
         if(!msg.success)
-            alert("שגיאה התרחשה בתהליך השמירה");
-        else alert("השמירה בוצעה בהצלחה!");
+            alert(gettext("An error has occurred while trying to save the file."));
+        else alert(gettext("The file has been saved!"));
     });
 }
 
 function newFile() {
     var fname = null;
-    while(!(fname = prompt("אנא בחר שם לקובץ החדש", "no_name")));
+    while(!(fname = prompt(gettext("Please pick a name:"), "no_name")));
 
     $.ajax({
         url: "/ajax/new/"+fname+"/",
         async: false
     }).success(function(msg){
         if(!msg.success) {
-            alert("שגיאה התרחשה בפתיחת הקובץ");
+            alert(gettext("An error has occurred while trying to create the file."));
         } else  {
-            alert("הקובץ נפתח בהצלחה!");
+            alert(gettext("The file has been created!"));
             $("#filename").html(fname+".pcs");
             $("#editor").val("");
         }
@@ -87,7 +87,7 @@ function newFile() {
 }
 
 function deleteFile() {
-    var ans = confirm("האם אתה בטוח שאתה רוצה למחוק קובץ זה?");
+    var ans = confirm(gettext("Are you sure you want to delete this file?"));
     if(ans === false || $("#filename").html() == "N/A")
         return
     var name = $("#filename").html();
@@ -98,9 +98,9 @@ function deleteFile() {
         async: false
     }).success(function(msg){
         if(!msg.success) {
-            alert("שגיאה התרחשה במחיקת הקובץ");
+            alert(gettext("An error has occurred while trying to delete the file."));
         } else  {
-            alert("הקובץ נמחק בהצלחה!");
+            alert(gettext("The file has been removed!"));
             $("#filename").html("N/A");
             $("#editor").val("");
         }
