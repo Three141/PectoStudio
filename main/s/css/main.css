@@ -6,7 +6,7 @@ html {
     min-width: 1024px;
     min-height: 720px;
     overflow: hidden;
-    background-color: #E0E0E0;
+    background: #C6C6C6;
     font-family: "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 16px;
     direction: rtl;
@@ -48,7 +48,7 @@ a img {
     width: 250px;
     height: 100%;
     padding: 60px 0 0;
-    background: #3D3D3D;
+    background: #333333;
     box-sizing: border-box;
     z-index: 200;
     color: #fafafa !important;
@@ -70,7 +70,7 @@ header {
     position: absolute;
     width: 100%;
     height: 50px;
-    background: #252525;
+    background: #173C46;
     z-index: 300;
 }
 
@@ -102,7 +102,7 @@ header nav ul li {
     display: inline-block;
     margin: 0;
     height: 100%;
-    width: 100px;
+    width: auto;
     font-size: 20px;
     position: relative;
     vertical-align: top;
@@ -121,7 +121,7 @@ header li ul li {
     height: 32px;
     line-height: 32px;
     color: #222222;
-    background: #aaaaaa;
+    background: #173C46;
     text-align: right;
 }
 
@@ -145,7 +145,7 @@ header a {
 header a:hover {
     top: 0;
     left: 0;
-    background: #3D3D3D;
+    background: #E64E32;
 }
 
 #main {
@@ -207,6 +207,9 @@ header a:hover {
     resize: none;
     width: 100%;
     text-align: right;
+    background: none;
+    border: none;
+    outline: none !important;
 }
 
 #dialog-overlay {
@@ -258,7 +261,7 @@ footer {
 }
 
 #cons-title {
-    background: #252525;
+    background: #173C46;
     color: #fafafa;
     height: 32px;
     line-height: 32px;
@@ -271,6 +274,6 @@ footer {
     height: 267px;
     padding: 15px;
     border: none;
-    background: #fafafa;
+    background: none;
     box-sizing: border-box;
 }

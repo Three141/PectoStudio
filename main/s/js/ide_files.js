@@ -8,8 +8,8 @@ function updateFileList() {
     });
 
     var str = "";
-    for (var i = 0; i < data.files.length; i++) {
-        str += "<li><a href=\"#\" onclick=\"loadFileByName(this)\">"+data.files[i]+"</a></li>\n";
+    for (var i = 0; i < data.my_files.length; i++) {
+        str += "<li><a href=\"#\" onclick=\"loadFileByName(this)\">"+data.my_files[i]+"</a></li>\n";
     }
     $("#sidebar ul").html(str);
 }

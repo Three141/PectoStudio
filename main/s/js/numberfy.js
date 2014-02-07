@@ -23,7 +23,7 @@
 		$(this).data({measurer: measurer});
 
 		//textarea and measurer must have same wor-wrap, white-space and overflow-y CSS so width readings are reliable
-		$(this).add(measurer).css({overflowY: 'scroll', wordWrap: 'break-word', whiteSpace: 'pre-wrap'});
+		$(this).add(measurer).css({wordWrap: 'break-word', whiteSpace: 'pre-wrap'});
 
 		//disable any native support for textarea resizing
 		$(this).css('resize', 'none');
@@ -69,7 +69,9 @@
 
 		//how many lines in textarea's current value?
 		//Since empty lines don't influence height in most HTML elements, convert these to have a &nbsp;
-		var lines = el.val().replace(/\n($|\n)/gm, '\n&nbsp;$1').split(/\n/g);
+		var lines = el.val().replace(/^\n$/g, '&nbsp;').replace(/\n($|\n)/gm, '\n&nbsp;$1').split(/\n/g);
+
+        lines[0] = lines[0] == "" ? "&nbsp;" : lines[0];
 
 		//gather line heights by putting each inside this textarea's corresponding measurer el and reading its expanded height
 		var lineHeights = [];

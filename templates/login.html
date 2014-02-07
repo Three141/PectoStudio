@@ -8,25 +8,24 @@
 </head>
 <body>
     {% get_current_language as LANGUAGE_CODE %}
-    <section id="mainContent">
-        <div id="loginCard">
-            <section id="right">
-                <img src="{% static "img/logo.png" %}" alt="PectoStudio">
-                <h1>
-                    <span style="color: #FF9036">Pecto</span><!--
-                 --><span style="color: #7f7f7f">Studio</span>
-                </h1>
-            </section>
-            <section id="left">
-                <h1>{% trans "Login" %}</h1>
-                <form method="post" action="">{% csrf_token %}
-                    <input type="text" name="username" placeholder="{% trans "Username" %}" autofocus autocomplete="off" required>
-                    <input type="password" name="password" placeholder="{% trans "Password" %}" required>
-                    <input type="submit" value="{% trans "Login" %}">
-                </form>
-            </section>
+    <div id="mainContent">
+        <div id="name-n-logo">
+            <img src="{% static "img/logo.png" %}" alt="PectoStudio">
+            <h1>
+                <span style="color: #E64E32">Pecto</span><!--
+             --><span style="color: #333333">Studio</span>
+            </h1>
         </div>
-        <p><a href="#" onclick="alert('{% trans "Please talk with the teacher." %}')">{% trans "Forgot your password?" %}</a></p>
-    </section>
+        <div id="line"></div>
+        <div id="login-form">
+            <h1>{% trans "Login" %}</h1>
+            <form method="post" action="">{% csrf_token %}
+                <input type="text" name="username" placeholder="{% trans "Username" %}" autofocus autocomplete="off" required>
+                <input type="password" name="password" placeholder="{% trans "Password" %}" required>
+                <input type="submit" value="{% trans "Login" %}">
+            </form>
+            <p><a href="#" onclick="alert('{% trans "Please talk with the teacher." %}')">{% trans "Forgot your password?" %}</a></p>
+        </div>
+    </div>
 </body>
 </html>

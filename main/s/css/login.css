@@ -55,81 +55,53 @@ a:hover, a:active, a:focus {
 }
 html {
 	direction: rtl;
-	background: #E3E3E3;
+	background: #C6C6C6;
 	width: 100%;
-	z-index: -100;
+	height: 100%;
+}
+body {
+    width: 100%;
+    height: inherit;
 }
 #mainContent {
 	width: 1080px;
-	margin: 20px auto;
-	position: relative;
-}
-div#loginCard {
-	border: 1px solid #999;
-	background: #fafafa;
-	position: relative;
-	box-shadow: 0 3px 3px rgba(88,88,88,0.5);
-}
-div#loginCard::before {
-	content: "";
-	width: 1060px;
-	height: 100px;
-	border: 1px solid #999;
-	background: #fafafa;
-	position: absolute;
-	bottom: -8px;
-	right: 8px;
-	z-index: -1;
-	box-shadow: 0 2px 3px rgba(88,88,88,0.5);
-}
-div#loginCard::after {
-	content: "";
-	width: 1040px;
-	height: 100px;
-	border: 1px solid #999;
-	background: #fafafa;
-	position: absolute;
-	bottom: -15px;
-	right: 18px;
-	z-index: -2;
-	box-shadow: 0 0 3px rgba(88,88,88,0.5);
-}
-div#loginCard section {
-	display: inline-block;
-    vertical-align: top;
-	width: 530px;
     height: inherit;
+	margin: 0 auto;
+	position: relative;
+}
+#mainContent div {
+	display: inline-block;
+    vertical-align: middle;
+	width: 529px;
     box-sizing: border-box;
 }
-#right {
-	border-left: 1px solid #999;
+#mainContent #line {
+    width: 1px;
+    height: inherit;
+    background: #333333;
 }
-.no-cssgradients #right {
-	padding-left: 2px;
-	border-left: 1px solid #999;
-}
-#right img {
+#name-n-logo img {
 	width: 250px;
 	margin: 20px auto;
 	display: block;
 }
-#right h1 {
+#name-n-logo h1 {
 	text-align: center;
 	font-weight: bold;
 	font-family: "Exo 2", "Helvetica", "Helvetica Neue", "Alef Hebrew", Arial, sans-serif !important;
 	font-size: 72px;
 }
-#right span {
+#name-n-logo span {
 	margin: 0;
 	padding: 0;
 }
-#left h1 {
+#login-form h1 {
 	color: #7f7f7f;
 	font-size: 40px;
 	text-align: center;
 	margin: 20px 0 40px;
 }
-#left input {
+#login-form input {
 	display: block;
 	margin: 10px auto;
 	width: 90%;
@@ -140,7 +112,7 @@ div#loginCard section {
 	border: 1px solid #aaa;
 	color: #222;
 }
-#left input:last-child {
+#login-form input:last-child {
 	background: #FF9036;
 	width: 100px;
 	font-size: 1.6em;
@@ -152,13 +124,13 @@ div#loginCard section {
 	cursor: pointer;
     border-radius: 0;
 }
-#left input:last-child:hover {
+#login-form input:last-child:hover {
     opacity: 0.8;
 }
-#left input:last-child:active {
+#login-form input:last-child:active {
 	opacity: 0.6;
 }
-#left input:focus {
+#login-form input:focus {
 	border: 1px solid #FF9036;
 	box-shadow: 0 0 2px #FF9036;
 }
