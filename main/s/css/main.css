@@ -66,6 +66,18 @@ a img {
     background: rgba(255,255,255,0.2);
 }
 
+#sidebar h1, #sidebar h2 {
+    margin-right: 5px;
+}
+
+#sidebar h1 {
+    text-decoration: underline;
+}
+
+#sidebar h2 {
+    font-size: 18px;
+}
+
 header {
     position: absolute;
     width: 100%;
@@ -79,12 +91,19 @@ header #doc-title {
     color: #ddd !important;
     height: inherit;
     line-height: 50px;
-    padding-left: 10px;
+    padding-left: 50px;
     box-sizing: border-box;
     position: inherit;
     left: 0;
     top: 0;
     text-align: left;
+}
+
+#doc-title img {
+    height: 40px;
+    position: absolute;
+    left: 5px;
+    top: 5px;
 }
 
 header ul, header nav {

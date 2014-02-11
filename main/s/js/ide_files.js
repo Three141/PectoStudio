@@ -7,25 +7,43 @@ function updateFileList() {
         data = msg;
     });
 
-    var str = "";
+    var str = ""; //print the user's files
     for (var i = 0; i < data.my_files.length; i++) {
         str += "<li><a href=\"#\" onclick=\"loadFileByName(this)\">"+data.my_files[i]+"</a></li>\n";
     }
-    $("#sidebar ul").html(str);
+    $("#sidebar #my-files").html(str);
+
+    str = ""; //print the other files
+    for (i in data.shared_with_me) {
+        str += "<h2>"+i+"</h2>\n<ul>\n";
+        for (var j = 0; j < data.shared_with_me[i].length; j++) {
+            str += "<li><a href=\"#\" onclick=\"loadFileByName(this)\">"+data.shared_with_me[i][j]+"</a></li>\n";
+        }
+        str += "</ul>";
+    }
+    $("#sidebar #shared-files").html(str);
 }
 
 function loadFileByName(obj) {
-    var data = null;
     var name = $(obj).html();
+
+    if ($("#filename").html() != "N/A") {
+        if (confirm(gettext("Do you want to save the file before exit?")))
+            saveFile();
+    }
+
     $.ajax({
         url: "/ajax/file/"+name+".json",
         async: false
     }).success(function(msg){
-        data = msg;
+        if(!msg.success) {
+            var emsg = gettext("An error has occurred while trying to load the file.") + "\n" + gettext("Error: ") + msg.error_msg;
+            alert(emsg);
+        } else {
+            $("#filename").html(msg.name+".pcs");
+            $("#editor").val(msg.data);
+        }
     });
-
-    $("#filename").html(data.name+".pcs");
-    $("#editor").val(data.data);
 }
 
 function getCookie(name) {
@@ -60,22 +78,26 @@ function saveFile() {
         data: { data: $("#editor").val() },
         async: false
     }).success(function(msg){
-        if(!msg.success)
-            alert(gettext("An error has occurred while trying to save the file."));
-        else alert(gettext("The file has been saved!"));
+        if(!msg.success) {
+            var emsg = gettext("An error has occurred while trying to save the file.") + "\n" + gettext("Error: ") + msg.error_msg;
+            alert(emsg);
+        } else alert(gettext("The file has been saved!"));
     });
 }
 
 function newFile() {
     var fname = null;
-    while(!(fname = prompt(gettext("Please pick a name:"), "no_name")));
+    fname = prompt(gettext("Please pick a name:"), "no_name");
+    if (fname == null)
+        return;
 
     $.ajax({
         url: "/ajax/new/"+fname+"/",
         async: false
     }).success(function(msg){
         if(!msg.success) {
-            alert(gettext("An error has occurred while trying to create the file."));
+            var emsg = gettext("An error has occurred while trying to create the file.") + "\n" + gettext("Error: ") + msg.error_msg;
+            alert(emsg);
         } else  {
             alert(gettext("The file has been created!"));
             $("#filename").html(fname+".pcs");
@@ -98,7 +120,8 @@ function deleteFile() {
         async: false
     }).success(function(msg){
         if(!msg.success) {
-            alert(gettext("An error has occurred while trying to delete the file."));
+            var emsg = gettext("An error has occurred while trying to delete the file.") + "\n" + gettext("Error: ") + msg.error_msg;
+            alert(emsg);
         } else  {
             alert(gettext("The file has been removed!"));
             $("#filename").html("N/A");

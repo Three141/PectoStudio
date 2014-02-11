@@ -14,7 +14,7 @@
     </head>
     <body>
         <header>
-            <div id="doc-title">PectoStudio 0.34 ALPHA  -  <span id="filename">N/A</span></div>
+            <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.5 ALPHA  -  <span id="filename">N/A</span></div>
             <nav>
                 <ul>
                     <li>
@@ -54,11 +54,14 @@
             </nav>
         </header>
         <aside id="sidebar">
-            <ul>
-                {% for file in file_list %}
-                <li><a href="#" onclick="loadFileByName(this)">{{ file }}</a></li>
-                {% endfor %}
+            <h1>{% trans "My files:" %}</h1>
+            <ul class="file-list" id="my-files">
+
             </ul>
+            <h1>{% trans "Shared with me:" %}</h1>
+            <div class="file-list" id="shared-files">
+
+            </div>
         </aside>
         <div id="dialog-overlay"></div>
         <div id="dialog-box">
@@ -69,6 +72,7 @@
             <textarea id="editor"></textarea>
             <script>
                 $("#editor").numberfy();
+                updateFileList();
             </script>
         </div>
         <footer>

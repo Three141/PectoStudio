@@ -19,6 +19,9 @@
         <div id="line"></div>
         <div id="login-form">
             <h1>{% trans "Login" %}</h1>
+            {% if bad_login %}
+            <div>שגיאת התחברות</div>
+            {% endif %}
             <form method="post" action="">{% csrf_token %}
                 <input type="text" name="username" placeholder="{% trans "Username" %}" autofocus autocomplete="off" required>
                 <input type="password" name="password" placeholder="{% trans "Password" %}" required>

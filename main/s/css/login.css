@@ -113,7 +113,7 @@ body {
 	color: #222;
 }
 #login-form input:last-child {
-	background: #FF9036;
+	background: #173C46;
 	width: 100px;
 	font-size: 1.6em;
 	padding: 8px 10px;
@@ -131,8 +131,8 @@ body {
 	opacity: 0.6;
 }
 #login-form input:focus {
-	border: 1px solid #FF9036;
-	box-shadow: 0 0 2px #FF9036;
+	border: 1px solid #E64E32;
+	box-shadow: 0 0 5px #173C46;
 }
 p {
 	margin-top: 20px;
