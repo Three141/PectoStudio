@@ -1,5 +1,17 @@
+var openFile = {
+    name: "N/A",
+    owner: false, //indicates self
+    initVal: "",
+    is_changed: function() {
+        if ($("#editor").val() != this.initVal)
+            return true;
+        return false;
+    }
+}
+
 function updateFileList() {
     var data = null;
+
     $.ajax({
         url: "/ajax/all_files.json",
         async: false
@@ -9,7 +21,7 @@ function updateFileList() {
 
     var str = ""; //print the user's files
     for (var i = 0; i < data.my_files.length; i++) {
-        str += "<li><a href=\"#\" onclick=\"loadFileByName(this)\">"+data.my_files[i]+"</a></li>\n";
+        str += "<li"+((data.my_files[i]==openFile.name&&!openFile.owner)?" class=\"in-use\"":"")+"><a href=\"javascript:void(0)\" onclick=\"loadFileByName(this)\">"+data.my_files[i]+"</a></li>\n";
     }
     $("#sidebar #my-files").html(str);
 
@@ -17,33 +29,43 @@ function updateFileList() {
     for (i in data.shared_with_me) {
         str += "<h2>"+i+"</h2>\n<ul>\n";
         for (var j = 0; j < data.shared_with_me[i].length; j++) {
-            str += "<li><a href=\"#\" onclick=\"loadFileByName(this)\">"+data.shared_with_me[i][j]+"</a></li>\n";
+            str += "<li"+((data.shared_with_me[i][j]==openFile.name&&openFile.owner==i.split(" | ")[0])?" class=\"in-use\"":"")+"><a href=\"javascript:void(0)\" onclick=\"loadFileByName(this, '"+i.split(" | ")[0]+"')\">"+data.shared_with_me[i][j]+"</a></li>\n";
         }
         str += "</ul>";
     }
     $("#sidebar #shared-files").html(str);
 }
 
-function loadFileByName(obj) {
+function loadFileByName(obj, owner) {
     var name = $(obj).html();
+    var is_shared = false;
 
-    if ($("#filename").html() != "N/A") {
+    if (typeof owner !== 'undefined') {
+        is_shared = true;
+    }
+
+    if (openFile.name != "N/A" && !openFile.owner && openFile.is_changed()) {
         if (confirm(gettext("Do you want to save the file before exit?")))
             saveFile();
     }
 
     $.ajax({
-        url: "/ajax/file/"+name+".json",
+        url: (is_shared?("/ajax/file/"+owner+"/"+name+".json"):("/ajax/file/"+name+".json")),
         async: false
     }).success(function(msg){
         if(!msg.success) {
             var emsg = gettext("An error has occurred while trying to load the file.") + "\n" + gettext("Error: ") + msg.error_msg;
             alert(emsg);
         } else {
+            openFile.name = msg.name;
+            openFile.owner = is_shared?owner:false;
+            openFile.initVal = msg.data;
             $("#filename").html(msg.name+".pcs");
             $("#editor").val(msg.data);
         }
     });
+
+    updateFileList();
 }
 
 function getCookie(name) {
@@ -63,12 +85,11 @@ function getCookie(name) {
 }
 
 function saveFile() {
-    if($("#filename").html() == "N/A")
+    if(openFile.name == "N/A")
         return;
 
     var csrftoken = getCookie('csrftoken');
-    var name = $("#filename").html();
-    name = name.substring(0, name.lastIndexOf("."));
+    var name = openFile.name;
 
     $.ajax({
         crossDomain: false, // obviates need for sameOrigin test
@@ -100,6 +121,8 @@ function newFile() {
             alert(emsg);
         } else  {
             alert(gettext("The file has been created!"));
+            openFile.name = fname;
+            openFile.owner = false;
             $("#filename").html(fname+".pcs");
             $("#editor").val("");
         }
@@ -124,6 +147,8 @@ function deleteFile() {
             alert(emsg);
         } else  {
             alert(gettext("The file has been removed!"));
+            openFile.name = "N/A";
+            openFile.owner = false;
             $("#filename").html("N/A");
             $("#editor").val("");
         }

@@ -3,7 +3,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login as d_login, logout as d_logout
 from django.utils.translation import ugettext as _
 from forms import *
-from models import ProgramFile
+from models import ProgramFile, Student
 import json
 
 
@@ -58,11 +58,28 @@ def get_all_files(req):
 def get_file_data_by_name(req, file_name):
     if not req.user.is_authenticated():
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('Not connected')}), content_type="application/json")
-    pfile = ProgramFile.objects.filter(owner=req.user, name=file_name)
+    pfile = ProgramFile.objects.filter(owner=req.user.student, name=file_name)
     if not pfile:
-        pfile = ProgramFile.objects.filter(owner__classroom=req.user.student.classroom, name=file_name, shared_with_class=True)
-        if not pfile:
-            return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
+        return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
+    pfile = pfile[0]
+    response_data = {
+        "name": unicode(pfile),
+        "data": pfile.get_data(),
+        'success': True
+    }
+    return HttpResponse(json.dumps(response_data), content_type="application/json")
+
+
+def get_shared_file_data_by_name(req, file_owner, file_name):
+    if not req.user.is_authenticated():
+        return HttpResponse(json.dumps({'success': False, 'error_msg': _('Not connected')}), content_type="application/json")
+    owner_student = Student.objects.filter(user__username=file_owner)
+    if not owner_student:
+        return HttpResponse(json.dumps({'success': False, 'error_msg': _('Unknown student')}), content_type="application/json")
+    owner_student = owner_student[0]
+    pfile = ProgramFile.objects.filter(owner=owner_student, name=file_name, shared_with_class=True)
+    if not pfile:
+        return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
     pfile = pfile[0]
     response_data = {
         "name": unicode(pfile),
@@ -77,15 +94,16 @@ def save_file_by_name(req, file_name):
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('Not connected')}), content_type="application/json")
     if req.method != 'POST':
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('Not a POST request')}), content_type="application/json")
-    pfile = ProgramFile.objects.filter(name=file_name)
+    pfile = ProgramFile.objects.filter(owner=req.user.student, name=file_name)
     if not pfile:
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
-    pfile = pfile[0]
-    if pfile.owner != req.user.student:
-        return HttpResponse(json.dumps({'success': False, 'error_msg': _('You\'re not allowed to perform this action')}), content_type="application/json")
-    pfile.data = req.POST['data']
-    pfile.save()
-    return HttpResponse(json.dumps({'success': True}), content_type="application/json")
+    for file in pfile:
+        if file.owner == req.user.student:
+            pfile = pfile[0]
+            pfile.data = req.POST['data']
+            pfile.save()
+            return HttpResponse(json.dumps({'success': True}), content_type="application/json")
+    return HttpResponse(json.dumps({'success': False, 'error_msg': _('You\'re not allowed to perform this action')}), content_type="application/json")
 
 
 def new_file(req, file_name):
@@ -93,7 +111,7 @@ def new_file(req, file_name):
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('Not connected')}), content_type="application/json")
     if ProgramFile.objects.filter(name=file_name, owner=req.user):
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('File with that name already exists')}), content_type="application/json")
-    pfile = ProgramFile(name=file_name, owner=req.user)
+    pfile = ProgramFile(name=file_name, owner=req.user.student)
     pfile.save()
     return HttpResponse(json.dumps({'success': True}), content_type="application/json")
 
@@ -104,8 +122,8 @@ def delete_file(req, file_name):
     pfile = ProgramFile.objects.filter(name=file_name)
     if not pfile:
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
-    pfile = pfile[0]
-    if pfile.owner != req.user.student:
-        return HttpResponse(json.dumps({'success': False, 'error_msg': _('You\'re not allowed to do it')}), content_type="application/json")
-    pfile.delete()
-    return HttpResponse(json.dumps({'success': True}), content_type="application/json")
+    for file in pfile:
+        if file.owner == req.user.student:
+            pfile.delete()
+            return HttpResponse(json.dumps({'success': True}), content_type="application/json")
+    return HttpResponse(json.dumps({'success': False, 'error_msg': _('You\'re not allowed to do it')}), content_type="application/json")

@@ -58,11 +58,8 @@ a img {
     color: #fafafa !important;
 }
 
-#sidebar li.in_use {
+#sidebar li.in-use {
     margin-right: 30px;
-}
-
-#sidebar li.in_use a {
     background: rgba(255,255,255,0.2);
 }
 
