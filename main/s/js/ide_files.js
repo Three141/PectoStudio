@@ -102,7 +102,10 @@ function saveFile() {
         if(!msg.success) {
             var emsg = gettext("An error has occurred while trying to save the file.") + "\n" + gettext("Error: ") + msg.error_msg;
             alert(emsg);
-        } else alert(gettext("The file has been saved!"));
+        } else {
+            alert(gettext("The file has been saved!"));
+            openFile.initVal = $("#editor").val();
+        }
     });
 }
 
