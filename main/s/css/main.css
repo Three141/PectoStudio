@@ -58,24 +58,26 @@ a img {
     color: #fafafa !important;
 }
 
+#sidebar ul{
+    list-style: none;
+}
 #sidebar li.in-use {
-    margin-right: 30px;
-    background: rgba(255,255,255,0.2);
+    background: #999999;
 }
 
 #sidebar h1, #sidebar h2 {
-    margin-right: 5px;
+    text-align: center;
 }
 
 #sidebar h1 {
     background: #173C46;
-    text-align: center;
-    margin-right: 0px;
-    text-decoration: none;
 }
 
 #sidebar h2 {
     font-size: 18px;
+    background: #E64E32;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 header {
