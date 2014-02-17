@@ -70,6 +70,8 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-US'
 
+LANGUAGE_COOKIE_NAME = 'ps-lang'
+
 TIME_ZONE = 'Asia/Jerusalem'
 
 USE_I18N = True

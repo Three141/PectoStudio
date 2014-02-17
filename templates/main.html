@@ -7,6 +7,9 @@
         <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/main.css" %}">
         <script src="{% url "django.views.i18n.javascript_catalog" %}"></script>
         <script src="{% static "js/jquery.js" %}"></script>
+        <script src="{% static "js/jquery.cookie.js" %}"></script>
+        <script src="{% static "js/ide_languages.js" %}"></script>
+        <script src="{% static "js/ide_keymap.js" %}"></script>
         <script src="{% static "js/ide_popups.js" %}"></script>
         <script src="{% static "js/ide_console.js" %}"></script>
         <script src="{% static "js/ide_files.js" %}"></script>
@@ -14,7 +17,7 @@
     </head>
     <body>
         <header>
-            <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.51 ALPHA  -  <span id="filename">N/A</span></div>
+            <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.6 ALPHA  -  <span id="filename">N/A</span></div>
             <nav>
                 <ul>
                     <li>
@@ -26,29 +29,23 @@
                             <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                         </ul>
                     </li><li>
-                        <a href="#">{% trans "Settings" %}</a>
+                        <a href="#">{% trans "Tests" %}</a>
                         <ul>
                             <li><a href="#" onclick="popup('בדיקה','שלום עולם!')">שלום עולם</a></li>
                             <li><a href="#" onclick="printf(scanf('מה ברצונך לעשות?'))">דוגמאת פלט</a></li>
-                            <li><a href="#">בדיקה 2</a></li>
-                            <li><a href="#">בדיקה 2</a></li>
-                            <li><a href="#">בדיקה 2</a></li>
-                            <li><a href="#">בדיקה 2</a></li>
-                            <li><a href="#">בדיקה 2</a></li>
                         </ul>
                     </li><li>
-                        <a href="#">{% trans "Layout" %}</a>
+                        <a href="#">{% trans "Run" %}</a>
                         <ul>
-                            <li><a href="#">בדיקה 3</a></li>
-                            <li><a href="#">בדיקה 3</a></li>
-                            <li><a href="#">בדיקה 3</a></li>
+                            <li><a href="#" onclick="runCode()">{% trans "Run code" %}</a></li>
+                            <li><a href="#" onclick="stopCode()">{% trans "Stop running code" %}</a></li>
                         </ul>
                     </li><li>
-                        <a href="#">{% trans "About" %}</a>
-                        <ul>
-                            <li><a href="#">בדיקה 4</a></li>
-                            <li><a href="#">בדיקה 4</a></li>
-                        </ul>
+                        <a href="#" onclick="alert('{% trans "Coming soon..." %}')">{% trans "Forums" %}</a>
+                    </li><li>
+                        <a href="#" onclick="alert('{% trans "Coming soon..." %}')">{% trans "Messages" %}</a>
+                    </li><li>
+                        <a href="#" onclick="alert('{% trans "Coming soon..." %}')">{% trans "Settings" %}</a>
                     </li>
                 </ul>
             </nav>

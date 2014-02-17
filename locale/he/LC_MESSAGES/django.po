@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PectoStudio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-11 23:05+0200\n"
-"PO-Revision-Date: 2014-02-11 23:05+0200\n"
+"POT-Creation-Date: 2014-02-17 20:11+0200\n"
+"PO-Revision-Date: 2014-02-17 20:12+0200\n"
 "Last-Translator: Gal <gal123iv@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -70,93 +70,119 @@ msgstr "כיתה"
 msgid "classes"
 msgstr "כיתות"
 
-#: .\main\views.py:47 .\main\views.py:60 .\main\views.py:77 .\main\views.py:93
-#: .\main\views.py:103
+#: .\main\views.py:47 .\main\views.py:60 .\main\views.py:75 .\main\views.py:94
+#: .\main\views.py:111 .\main\views.py:121
 msgid "Not connected"
 msgstr "לא מחובר"
 
-#: .\main\views.py:65 .\main\views.py:82 .\main\views.py:106
+#: .\main\views.py:63 .\main\views.py:82 .\main\views.py:99
+#: .\main\views.py:124
 msgid "File not found"
 msgstr "קובץ לא נמצא"
 
-#: .\main\views.py:79
+#: .\main\views.py:78
+msgid "Unknown student"
+msgstr "תלמיד לא יודע"
+
+#: .\main\views.py:96
 msgid "Not a POST request"
 msgstr "לא בקשת POST"
 
-#: .\main\views.py:85
+#: .\main\views.py:106
 msgid "You're not allowed to perform this action"
 msgstr "את/ה לא מורשה/ת לעשות זאת"
 
-#: .\main\views.py:95
+#: .\main\views.py:113
 msgid "File with that name already exists"
 msgstr "קובץ בעל שם זהה כבר קיים"
 
-#: .\main\views.py:109
+#: .\main\views.py:129
 msgid "You're not allowed to do it"
 msgstr "את/ה לא מורשה/ת לעשות זאת"
 
-#: .\templates\login.html:5 .\templates\login.html.py:21
-#: .\templates\login.html:28
+#: .\templates\login.html:5 .\templates\login.html.py:28
+#: .\templates\login.html:35
 msgid "Login"
 msgstr "התחבר"
 
-#: .\templates\login.html:26
+#: .\templates\login.html:33
 msgid "Username"
 msgstr "שם משתמש"
 
-#: .\templates\login.html:27
+#: .\templates\login.html:34
 msgid "Password"
 msgstr "סיסמה"
 
-#: .\templates\login.html:30
+#: .\templates\login.html:37
 msgid "Please talk with the teacher."
 msgstr "אנא דבר עם המורה."
 
-#: .\templates\login.html:30
+#: .\templates\login.html:37
 msgid "Forgot your password?"
 msgstr "שחכת/ה את הסיסמה?"
 
-#: .\templates\main.html:21
+#: .\templates\main.html:23
 msgid "File"
 msgstr "קובץ"
 
-#: .\templates\main.html:23
+#: .\templates\main.html:25
 msgid "New file"
 msgstr "קובץ חדש"
 
-#: .\templates\main.html:24
+#: .\templates\main.html:26
 msgid "Save"
 msgstr "שמור"
 
-#: .\templates\main.html:25
+#: .\templates\main.html:27
 msgid "Delete file"
 msgstr "מחק קובץ"
 
-#: .\templates\main.html:26
+#: .\templates\main.html:28
 msgid "Logout"
 msgstr "התנתק"
 
-#: .\templates\main.html:29
+#: .\templates\main.html:31
+msgid "Tests"
+msgstr "בדיקות"
+
+#: .\templates\main.html:37
+msgid "Run"
+msgstr "הפעל"
+
+#: .\templates\main.html:39
+msgid "Run code"
+msgstr "הרץ קוד"
+
+#: .\templates\main.html:40
+msgid "Stop running code"
+msgstr "הפסק הרצת הקוד"
+
+#: .\templates\main.html:43 .\templates\main.html.py:45
+#: .\templates\main.html:47
+msgid "Coming soon..."
+msgstr "בקרוב..."
+
+#: .\templates\main.html:43
+msgid "Forums"
+msgstr "פורומים"
+
+#: .\templates\main.html:45
+msgid "Messages"
+msgstr "הודעות"
+
+#: .\templates\main.html:47
 msgid "Settings"
 msgstr "הגדרות"
 
-#: .\templates\main.html:40
-msgid "Layout"
-msgstr "מראה"
-
-#: .\templates\main.html:47
-msgid "About"
-msgstr "אודות"
-
-#: .\templates\main.html:57
+#: .\templates\main.html:53
 msgid "My files:"
 msgstr "הקבצים שלי:"
 
-#: .\templates\main.html:61
+#: .\templates\main.html:57
 msgid "Shared with me:"
 msgstr "משותף איתי:"
 
-#: .\templates\main.html:79
+#: .\templates\main.html:75
 msgid "Input / Output"
 msgstr "קלט / פלט"
 
@@ -167,3 +193,9 @@ msgstr "אתר ניהול PectoStudio"
 #: .\templates\admin\base_site.html:7
 msgid "PectoStudio administration"
 msgstr "ניהול PectoStudio"
+
+#~ msgid "Layout"
+#~ msgstr "מראה"
+
+#~ msgid "About"
+#~ msgstr "אודות"

@@ -127,7 +127,7 @@ header nav ul li {
 
 header li ul {
     position: relative;
-    width: 150px;
+    width: 200px;
     display: none;
 }
 
@@ -137,8 +137,10 @@ header li ul li {
     height: 32px;
     line-height: 32px;
     color: #222222;
-    background: #173C46;
+    background-color: #173C46;
+    background-color: rgba(23,60,70,0.9);
     text-align: right;
+    position: relative;
 }
 
 header li ul li a {
@@ -148,6 +150,7 @@ header li ul li a {
 
 header li:hover ul, header li ul:hover {
     display: block;
+    position: absolute;
 }
 
 header a {

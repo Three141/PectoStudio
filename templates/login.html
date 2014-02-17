@@ -5,6 +5,9 @@
     <title>PectoStudio - {% trans "Login" %}</title>
     <link href='http://fonts.googleapis.com/css?family=Exo+2:200,400,700&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static "css/login.css" %}" type="text/css" media="screen">
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/jquery.cookie.js" %}"></script>
+    <script src="{% static "js/ide_languages.js" %}"></script>
 </head>
 <body>
     {% get_current_language as LANGUAGE_CODE %}
@@ -18,6 +21,10 @@
         </div>
         <div id="line"></div>
         <div id="login-form">
+            <select id="langSelect" onchange="changeLanguage(this)">
+                <option value="he" {% if LANGUAGE_CODE == "he" %}selected{% endif %}>עברית</option>
+                <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>English</option>
+            </select>
             <h1>{% trans "Login" %}</h1>
             {% if bad_login %}
             <div>שגיאת התחברות</div>

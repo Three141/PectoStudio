@@ -95,6 +95,10 @@ body {
 	margin: 0;
 	padding: 0;
 }
+#langSelect {
+    position: absolute;
+    left: 20px;
+}
 #login-form h1 {
 	color: #7f7f7f;
 	font-size: 40px;
