@@ -26,7 +26,6 @@
                             <li><a href="#" onclick="newFile()">{% trans "New file" %}</a></li>
                             <li><a href="#" onclick="saveFile()">{% trans "Save" %}</a></li>
                             <li><a href="#" onclick="deleteFile()">{% trans "Delete file" %}</a></li>
-                            <li><a href="{% url 'logout' %}">{% trans "Logout" %}</a></li>
                         </ul>
                     </li><li>
                         <a href="#">{% trans "Tests" %}</a>
@@ -46,6 +45,8 @@
                         <a href="#" onclick="alert('{% trans "Coming soon..." %}')">{% trans "Messages" %}</a>
                     </li><li>
                         <a href="#" onclick="alert('{% trans "Coming soon..." %}')">{% trans "Settings" %}</a>
+                    </li><li>
+                        <a href="{% url 'logout' %}">{% trans "Logout" %}</a>
                     </li>
                 </ul>
             </nav>
