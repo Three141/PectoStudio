@@ -1,6 +1,7 @@
 var openFile = {
     name: "N/A",
     owner: false, //indicates self
+    shared: false,
     initVal: "",
     is_changed: function() {
         if ($("#editor").val() != this.initVal)
@@ -27,7 +28,7 @@ function updateFileList() {
 
     str = ""; //print the other files
     for (i in data.shared_with_me) {
-        str += "<h2>"+i+"</h2>\n<ul>\n";
+        str += "<h2>"+ i.split(" | ").reverse()[0]+"</h2>\n<ul>\n";
         for (var j = 0; j < data.shared_with_me[i].length; j++) {
             str += "<li"+((data.shared_with_me[i][j]==openFile.name&&openFile.owner==i.split(" | ")[0])?" class=\"in-use\"":"")+"><a href=\"javascript:void(0)\" onclick=\"loadFileByName(this, '"+i.split(" | ")[0]+"')\">"+data.shared_with_me[i][j]+"</a></li>\n";
         }
@@ -59,9 +60,11 @@ function loadFileByName(obj, owner) {
         } else {
             openFile.name = msg.name;
             openFile.owner = is_shared?owner:false;
+            openFile.shared = msg.shared;
             openFile.initVal = msg.data;
             $("#filename").html(msg.name+".pcs");
             $("#editor").val(msg.data);
+            $('#to-share').prop("checked", msg.shared);
         }
     });
 
@@ -87,6 +90,12 @@ function getCookie(name) {
 function saveFile() {
     if(openFile.name == "N/A")
         return;
+    if(openFile.owner != false)
+    {
+        $('#to-share').prop("checked", !$('#to-share').prop("checked"));
+        alert(gettext('You\'re not allowed to perform this action'));
+        return;
+    }
 
     var csrftoken = getCookie('csrftoken');
     var name = openFile.name;
@@ -105,6 +114,33 @@ function saveFile() {
         } else {
             alert(gettext("The file has been saved!"));
             openFile.initVal = $("#editor").val();
+        }
+    });
+}
+
+function shareFile() {
+    if(openFile.name == "N/A") {
+        alert(gettext("Please open a file first"));
+        $('#to-share').prop("checked", false);
+        return;
+    }
+    if(openFile.owner != false)
+    {
+        alert(gettext('You\'re not allowed to perform this action'));
+        return;
+    }
+
+    var name = openFile.name;
+
+    $.ajax({
+        url: "/ajax/share/"+name+"/",
+        async: false
+    }).success(function(msg){
+        if(!msg.success) {
+            var emsg = gettext("An error has occurred while trying to share the file.") + "\n" + gettext("Error: ") + msg.error_msg;
+            alert(emsg);
+        } else {
+            alert(msg.message);
         }
     });
 }
@@ -128,6 +164,7 @@ function newFile() {
             openFile.owner = false;
             $("#filename").html(fname+".pcs");
             $("#editor").val("");
+            $('#to-share').prop("checked", false);
         }
     });
 
@@ -154,6 +191,7 @@ function deleteFile() {
             openFile.owner = false;
             $("#filename").html("N/A");
             $("#editor").val("");
+            $('#to-share').prop("checked", false);
         }
     });
 

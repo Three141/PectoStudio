@@ -1,10 +1,13 @@
-<!DOCTYPE html>{% load static i18n %}
+<!DOCTYPE html>{% load static i18n %}{% get_current_language_bidi as LANGUAGE_BIDI %}
 <html>
     <head>
         <meta charset="utf-8">
         <title>PectoStudio</title>
         <meta http-equiv="X-UA-Compatible" content="IE=Edge">
         <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/main.css" %}">
+        {% if not LANGUAGE_BIDI %}
+        <link rel="stylesheet" href="{% static "css/ltr.css" %}">
+        {% endif %}
         <script src="{% url "django.views.i18n.javascript_catalog" %}"></script>
         <script src="{% static "js/jquery.js" %}"></script>
         <script src="{% static "js/jquery.cookie.js" %}"></script>
@@ -17,7 +20,7 @@
     </head>
     <body>
         <header>
-            <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.6 ALPHA  -  <span id="filename">N/A</span></div>
+            <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.65 ALPHA  -  <span id="filename">N/A</span></div>
             <nav>
                 <ul>
                     <li>
@@ -52,6 +55,10 @@
             </nav>
         </header>
         <aside id="sidebar">
+            <div id="to-share-id">
+                <input type="checkbox" id="to-share" onchange="shareFile()">
+                <label for="to-share">{% trans "Share this file with the class" %}</label>
+            </div>
             <h1>{% trans "My files:" %}</h1>
             <ul class="file-list" id="my-files">
 

@@ -1,0 +1,107 @@
+html {
+	direction: ltr;
+}
+
+#langSelect {
+    left: auto;
+    right: 20px;
+}
+
+#login-form input:last-child {
+    margin: 20px 0 30px 414px;
+}
+
+html {
+    direction: ltr;
+    text-align: left;
+}
+
+a,
+a:hover,
+a:active,
+a:visited {
+    left: auto;
+    right: 0;
+}
+
+a:hover {
+    top: -2px;
+    left: auto;
+    right: -2px;
+}
+
+#sidebar {
+    right: auto;
+    left: 0;
+}
+
+header #doc-title {
+    padding-right: 50px;
+    padding-left: 0;
+    text-align: right;
+    left: auto;
+    right: 0;
+}
+
+#doc-title img {
+    left: auto;
+    right: 5px;
+}
+
+header li ul li {
+    text-align: left;
+}
+
+header li ul li a {
+    padding-left: 10px;
+    padding-right: 0;
+}
+
+header a:hover {
+    left: auto;
+    right: 0;
+}
+
+#main {
+    right: auto;
+    left: 250px;
+}
+
+.msg, #admin-login{
+	text-align: left;
+}
+
+#editor {
+    text-align: left;
+}
+
+.lineNumberfier {
+    padding-right: 0;
+    padding-left: 45px;
+}
+
+.lineNumsCol {
+    right: auto !important;
+    left: 0 !important;
+}
+
+#dialog-overlay {
+    left: auto;
+    right: 0;
+}
+
+#dialog-box #title {
+    text-align: left;
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+footer {
+    left: auto;
+    right: 0;
+}
+
+#cons-title {
+    padding-right: 0;
+    padding-left: 10px;
+}

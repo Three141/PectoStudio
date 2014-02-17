@@ -54,6 +54,21 @@ a img {
     color: #fafafa !important;
 }
 
+#sidebar label {
+    display: block;
+    text-align: center;
+    margin: 0 10px;
+    transition: 0.1s;
+}
+
+#to-share:checked+label {
+    background-color: #E64E32;
+}
+
+#to-share {
+    display: none;
+}
+
 #sidebar a {
     color: #fafafa !important;
 }
@@ -61,6 +76,11 @@ a img {
 #sidebar ul{
     list-style: none;
 }
+
+#sidebar li {
+    transition: 0.1s;
+}
+
 #sidebar li.in-use {
     background: #999999;
 }

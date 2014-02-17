@@ -15,6 +15,12 @@ function ide_keydown(e) {
             deleteFile();
             return;
         }
+        if (e.keyCode == 'E'.charCodeAt(0)) {
+            e.preventDefault();
+            $('#to-share').prop("checked", !$('#to-share').prop("checked"));
+            shareFile();
+            return;
+        }
         if (e.keyCode == 'R'.charCodeAt(0)) {
             e.preventDefault();
             runFile();

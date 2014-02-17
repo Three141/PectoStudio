@@ -63,8 +63,9 @@ def get_file_data_by_name(req, file_name):
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
     pfile = pfile[0]
     response_data = {
-        "name": unicode(pfile),
-        "data": pfile.get_data(),
+        'name': unicode(pfile),
+        'data': pfile.get_data(),
+        'shared': pfile.shared_with_class,
         'success': True
     }
     return HttpResponse(json.dumps(response_data), content_type="application/json")
@@ -82,8 +83,9 @@ def get_shared_file_data_by_name(req, file_owner, file_name):
         return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
     pfile = pfile[0]
     response_data = {
-        "name": unicode(pfile),
-        "data": pfile.get_data(),
+        'name': unicode(pfile),
+        'data': pfile.get_data(),
+        'shared': pfile.shared_with_class,
         'success': True
     }
     return HttpResponse(json.dumps(response_data), content_type="application/json")
@@ -103,6 +105,26 @@ def save_file_by_name(req, file_name):
             pfile.data = req.POST['data']
             pfile.save()
             return HttpResponse(json.dumps({'success': True}), content_type="application/json")
+    return HttpResponse(json.dumps({'success': False, 'error_msg': _('You\'re not allowed to perform this action')}), content_type="application/json")
+
+
+def share_file_by_name(req, file_name):
+    if not req.user.is_authenticated():
+        return HttpResponse(json.dumps({'success': False, 'error_msg': _('Not connected')}), content_type="application/json")
+    pfile = ProgramFile.objects.filter(owner=req.user.student, name=file_name)
+    if not pfile:
+        return HttpResponse(json.dumps({'success': False, 'error_msg': _('File not found')}), content_type="application/json")
+    for file in pfile:
+        if file.owner == req.user.student:
+            pfile = pfile[0]
+            pfile.shared_with_class = not pfile.shared_with_class
+            pfile.save()
+            outmsg = ''
+            if pfile.shared_with_class:
+                outmsg = _('The file has been shared!')
+            else:
+                outmsg = _('The file has been unshared!')
+            return HttpResponse(json.dumps({'message': outmsg, 'success': True}), content_type="application/json")
     return HttpResponse(json.dumps({'success': False, 'error_msg': _('You\'re not allowed to perform this action')}), content_type="application/json")
 
 

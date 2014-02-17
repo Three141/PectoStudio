@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PectoStudio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-11 23:03+0200\n"
-"PO-Revision-Date: 2014-02-11 23:04+0200\n"
+"POT-Creation-Date: 2014-02-17 21:53+0200\n"
+"PO-Revision-Date: 2014-02-17 21:54+0200\n"
 "Last-Translator: Gal <gal123iv@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -18,47 +18,56 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.4\n"
 
-#: .\main\s\js\ide_files.js:31
+#: .\main\s\js\ide_files.js:49
 msgid "Do you want to save the file before exit?"
 msgstr "האם את/ה רוצה לשמור את הקובץ מלפני שאת/ה יוצא/ת?"
 
-#: .\main\s\js\ide_files.js:40
+#: .\main\s\js\ide_files.js:58
 msgid "An error has occurred while trying to load the file."
 msgstr "שגיאה התרחשה במהלך טעינת הקובץ."
 
-#: .\main\s\js\ide_files.js:40 .\main\s\js\ide_files.js.c:82
-#: .\main\s\js\ide_files.js:99 .\main\s\js\ide_files.js.c:123
+#: .\main\s\js\ide_files.js:58 .\main\s\js\ide_files.js.c:106
+#: .\main\s\js\ide_files.js:129 .\main\s\js\ide_files.js.c:148
+#: .\main\s\js\ide_files.js:175
 msgid "Error: "
 msgstr "שגיאה: "
 
-#: .\main\s\js\ide_files.js:82
+#: .\main\s\js\ide_files.js:106
 msgid "An error has occurred while trying to save the file."
 msgstr "שגיאה התרחשה במהלך שמירת הקובץ."
 
-#: .\main\s\js\ide_files.js:84
+#: .\main\s\js\ide_files.js:109
 msgid "The file has been saved!"
 msgstr "הקובץ נשמר!"
 
-#: .\main\s\js\ide_files.js:90
+#: .\main\s\js\ide_files.js:117
+msgid "Please open a file first"
+msgstr "בבקשה תפתח/י קובץ קודם"
+
+#: .\main\s\js\ide_files.js:129
+msgid "An error has occurred while trying to share the file."
+msgstr "שגיאה התרחשה במהלך שיתוף הקובץ."
+
+#: .\main\s\js\ide_files.js:139
 msgid "Please pick a name:"
 msgstr "אנא בחר שם:"
 
-#: .\main\s\js\ide_files.js:99
+#: .\main\s\js\ide_files.js:148
 msgid "An error has occurred while trying to create the file."
 msgstr "שגיאה התרחשה במהלך יצירת הקובץ."
 
-#: .\main\s\js\ide_files.js:102
+#: .\main\s\js\ide_files.js:151
 msgid "The file has been created!"
 msgstr "הקובץ נוצר!"
 
-#: .\main\s\js\ide_files.js:112
+#: .\main\s\js\ide_files.js:164
 msgid "Are you sure you want to delete this file?"
 msgstr "האם את/ה בטוח/ה שאת/ה רוצה למחוק קובץ זה?"
 
-#: .\main\s\js\ide_files.js:123
+#: .\main\s\js\ide_files.js:175
 msgid "An error has occurred while trying to delete the file."
 msgstr "שגיאה התרחשה במהלך מחיקת הקובץ."
 
-#: .\main\s\js\ide_files.js:126
+#: .\main\s\js\ide_files.js:178
 msgid "The file has been removed!"
 msgstr "הקובץ נמחק!"

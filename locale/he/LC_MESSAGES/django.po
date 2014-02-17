@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PectoStudio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-17 20:11+0200\n"
-"PO-Revision-Date: 2014-02-17 20:12+0200\n"
+"POT-Creation-Date: 2014-02-17 21:52+0200\n"
+"PO-Revision-Date: 2014-02-17 21:17+0200\n"
 "Last-Translator: Gal <gal123iv@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -26,77 +26,85 @@ msgstr "משתמש בסיס"
 msgid "Class"
 msgstr "כיתה"
 
-#: .\main\models.py:34
+#: .\main\models.py:33
 msgid "Student"
 msgstr "תלמיד"
 
-#: .\main\models.py:35
+#: .\main\models.py:34
 msgid "Students"
 msgstr "תלמידים"
 
-#: .\main\models.py:39 .\main\models.py:56
+#: .\main\models.py:38 .\main\models.py:55
 msgid "Name"
 msgstr "שם"
 
-#: .\main\models.py:40
+#: .\main\models.py:39
 msgid "Data"
 msgstr "מידע"
 
-#: .\main\models.py:41
+#: .\main\models.py:40
 msgid "Owner"
 msgstr "בעלים"
 
-#: .\main\models.py:42
+#: .\main\models.py:41
 msgid "Shared with class"
 msgstr "משותף עם הכיתה"
 
-#: .\main\models.py:51
+#: .\main\models.py:50
 msgid "file"
 msgstr "קובץ"
 
-#: .\main\models.py:52
+#: .\main\models.py:51
 msgid "files"
 msgstr "קבצים"
 
-#: .\main\models.py:57
+#: .\main\models.py:56
 msgid "Teachers"
 msgstr "מורים"
 
-#: .\main\models.py:63
+#: .\main\models.py:62
 msgid "class"
 msgstr "כיתה"
 
-#: .\main\models.py:64
+#: .\main\models.py:63
 msgid "classes"
 msgstr "כיתות"
 
-#: .\main\views.py:47 .\main\views.py:60 .\main\views.py:75 .\main\views.py:94
-#: .\main\views.py:111 .\main\views.py:121
+#: .\main\views.py:47 .\main\views.py:60 .\main\views.py:76 .\main\views.py:95
+#: .\main\views.py:112 .\main\views.py:132 .\main\views.py:142
 msgid "Not connected"
 msgstr "לא מחובר"
 
-#: .\main\views.py:63 .\main\views.py:82 .\main\views.py:99
-#: .\main\views.py:124
+#: .\main\views.py:63 .\main\views.py:83 .\main\views.py:100
+#: .\main\views.py:115 .\main\views.py:145
 msgid "File not found"
 msgstr "קובץ לא נמצא"
 
-#: .\main\views.py:78
+#: .\main\views.py:79
 msgid "Unknown student"
 msgstr "תלמיד לא יודע"
 
-#: .\main\views.py:96
+#: .\main\views.py:97
 msgid "Not a POST request"
 msgstr "לא בקשת POST"
 
-#: .\main\views.py:106
+#: .\main\views.py:107 .\main\views.py:127
 msgid "You're not allowed to perform this action"
 msgstr "את/ה לא מורשה/ת לעשות זאת"
 
-#: .\main\views.py:113
+#: .\main\views.py:123
+msgid "The file has been shared!"
+msgstr "הקובץ שותף!"
+
+#: .\main\views.py:125
+msgid "The file has been unshared!"
+msgstr "שיתוף הקובץ בוטל!"
+
+#: .\main\views.py:134
 msgid "File with that name already exists"
 msgstr "קובץ בעל שם זהה כבר קיים"
 
-#: .\main\views.py:129
+#: .\main\views.py:150
 msgid "You're not allowed to do it"
 msgstr "את/ה לא מורשה/ת לעשות זאת"
 
@@ -121,25 +129,21 @@ msgstr "אנא דבר עם המורה."
 msgid "Forgot your password?"
 msgstr "שחכת/ה את הסיסמה?"
 
-#: .\templates\main.html:23
+#: .\templates\main.html:24
 msgid "File"
 msgstr "קובץ"
 
-#: .\templates\main.html:25
+#: .\templates\main.html:26
 msgid "New file"
 msgstr "קובץ חדש"
 
-#: .\templates\main.html:26
+#: .\templates\main.html:27
 msgid "Save"
 msgstr "שמור"
 
-#: .\templates\main.html:27
+#: .\templates\main.html:28
 msgid "Delete file"
 msgstr "מחק קובץ"
-
-#: .\templates\main.html:28
-msgid "Logout"
-msgstr "התנתק"
 
 #: .\templates\main.html:31
 msgid "Tests"
@@ -174,15 +178,23 @@ msgstr "הודעות"
 msgid "Settings"
 msgstr "הגדרות"
 
-#: .\templates\main.html:53
+#: .\templates\main.html:49
+msgid "Logout"
+msgstr "התנתק"
+
+#: .\templates\main.html:56
+msgid "Share this file with the class"
+msgstr "שתף את הקובץ עם הכיתה"
+
+#: .\templates\main.html:59
 msgid "My files:"
 msgstr "הקבצים שלי:"
 
-#: .\templates\main.html:57
+#: .\templates\main.html:63
 msgid "Shared with me:"
 msgstr "משותף איתי:"
 
-#: .\templates\main.html:75
+#: .\templates\main.html:81
 msgid "Input / Output"
 msgstr "קלט / פלט"
 
