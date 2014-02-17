@@ -2,9 +2,8 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" hash="3798792344">
     <data-source source="LOCAL" name="Django default" uuid="94d3a0cc-b556-4188-910d-8870168e0c79">
-      <driver-ref>sqlite.xerial</driver-ref>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:D:\PycharmProjects\PectoStudio\db.sqlite3</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\Yarons\Desktop\PectoStudio\db.sqlite3</jdbc-url>
       <libraries>
         <library>
           <url>file://$USER_HOME$/.PyCharm30/config/jdbc-drivers/xerial-sqlite-license.txt</url>
