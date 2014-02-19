@@ -37,6 +37,15 @@ def home_logon(req):
     })
 
 
+def nfc_login(req):
+    if req.user.is_authenticated():
+        return home_logon(req)
+    user = authenticate(username=req.GET['username'], password=req.GET['password'])
+    if user is not None:
+        d_login(req, user)
+    return HttpResponseRedirect("/")
+
+
 def logout(req):
     d_logout(req)
     return HttpResponseRedirect("/")
