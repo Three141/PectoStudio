@@ -24,7 +24,7 @@
         </div>
         <div id="line"></div>
         <div id="login-form">
-            <select id="langSelect" onchange="changeLanguage(this)">
+            <select id="langSelect" onchange="changeLanguage()">
                 <option value="he" {% if LANGUAGE_CODE == "he" %}selected{% endif %}>עברית</option>
                 <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>English</option>
             </select>

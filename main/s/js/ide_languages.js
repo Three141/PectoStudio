@@ -1,6 +1,15 @@
-function changeLanguage(e) {
-    var langCode = $(e).val();
-    console.log(langCode);
-    $.cookie("ps-lang", langCode);
-    location.reload();
+function inIframe () {
+    try {
+        return window.self !== window.top;
+    } catch (e) {
+        return true;
+    }
+}
+
+function changeLanguage() {
+    var langCode = $("#langSelect").val();
+    $.cookie("ps-lang", langCode, {expires: 7, path: '/'});
+    if (inIframe())
+        window.parent.location.reload();
+    else location.reload();
 }

@@ -5,6 +5,7 @@ from main import views
 urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     url(r'logout/$', views.logout, name='logout'),
+    url(r'settings/$', views.settings, name='settings'),
     url(r'auth/$', views.nfc_login),
     url(r'ajax/all_files\.json$', views.get_all_files),
     url(r'ajax/file/(?P<file_name>[^/]+)\.json$', views.get_file_data_by_name),

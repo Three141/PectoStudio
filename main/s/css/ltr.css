@@ -16,6 +16,11 @@ html {
     text-align: left;
 }
 
+body, html {
+    direction: ltr;
+    text-align: left;
+}
+
 a,
 a:hover,
 a:active,

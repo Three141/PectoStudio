@@ -1,0 +1,22 @@
+@import url(https://fonts.googleapis.com/earlyaccess/alefhebrew.css);
+
+html, body {
+    direction: rtl;
+    text-align: right;
+    font-family: "Alef Hebrew", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#action-buttons {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    background-color: #ffffff;
+    background-color: rgba(255,255,255,0.7);
+    width: 100%;
+}
+
+#action-buttons button {
+    width: 60px;
+    height: 40px;
+    margin: 0 20px;
+}

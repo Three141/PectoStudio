@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.contrib.auth import authenticate, login as d_login, logout as d_logout
 from django.utils.translation import ugettext as _
 from forms import *
@@ -49,6 +49,14 @@ def nfc_login(req):
 def logout(req):
     d_logout(req)
     return HttpResponseRedirect("/")
+
+
+def settings(req):
+    if not req.user.is_authenticated():
+        raise Http404
+
+    return render(req, 'settings.html', {
+    })
 
 
 def get_all_files(req):

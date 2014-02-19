@@ -1,0 +1,26 @@
+<!DOCTYPE html>{% load static i18n %}
+<html>
+<head>
+    <title>PectoStudio - {% trans "Settings" %}</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/settings.css" %}">
+    {% if not LANGUAGE_BIDI %}
+    <link rel="stylesheet" href="{% static "css/ltr.css" %}">
+    {% endif %}
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/jquery.cookie.js" %}"></script>
+    <script src="{% static "js/ide_languages.js" %}"></script>
+    <script src="{% static "js/ide_settings.js" %}"></script>
+</head>
+<body>
+    <div class="setting-option">
+        <label>{% trans "Language" %}:</label>
+        <select id="langSelect">
+            <option value="he" {% if LANGUAGE_CODE == "he" %}selected{% endif %}>עברית</option>
+            <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>English</option>
+        </select>
+    </div>
+    <div id="action-buttons">
+        <button onclick="apply()">{% trans "Apply" %}</button><button onclick="cancel()">{% trans "Cancel" %}</button>
+    </div>
+</body>
+</html>

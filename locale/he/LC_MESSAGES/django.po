@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PectoStudio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-17 21:52+0200\n"
-"PO-Revision-Date: 2014-02-17 21:17+0200\n"
+"POT-Creation-Date: 2014-02-19 15:50+0200\n"
+"PO-Revision-Date: 2014-02-19 15:50+0200\n"
 "Last-Translator: Gal <gal123iv@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -26,177 +26,194 @@ msgstr "משתמש בסיס"
 msgid "Class"
 msgstr "כיתה"
 
-#: .\main\models.py:33
+#: .\main\models.py:34
 msgid "Student"
 msgstr "תלמיד"
 
-#: .\main\models.py:34
+#: .\main\models.py:35
 msgid "Students"
 msgstr "תלמידים"
 
-#: .\main\models.py:38 .\main\models.py:55
+#: .\main\models.py:39 .\main\models.py:56
 msgid "Name"
 msgstr "שם"
 
-#: .\main\models.py:39
+#: .\main\models.py:40
 msgid "Data"
 msgstr "מידע"
 
-#: .\main\models.py:40
+#: .\main\models.py:41
 msgid "Owner"
 msgstr "בעלים"
 
-#: .\main\models.py:41
+#: .\main\models.py:42
 msgid "Shared with class"
 msgstr "משותף עם הכיתה"
 
-#: .\main\models.py:50
+#: .\main\models.py:51
 msgid "file"
 msgstr "קובץ"
 
-#: .\main\models.py:51
+#: .\main\models.py:52
 msgid "files"
 msgstr "קבצים"
 
-#: .\main\models.py:56
+#: .\main\models.py:57
 msgid "Teachers"
 msgstr "מורים"
 
-#: .\main\models.py:62
+#: .\main\models.py:63
 msgid "class"
 msgstr "כיתה"
 
-#: .\main\models.py:63
+#: .\main\models.py:64
 msgid "classes"
 msgstr "כיתות"
 
-#: .\main\views.py:47 .\main\views.py:60 .\main\views.py:76 .\main\views.py:95
-#: .\main\views.py:112 .\main\views.py:132 .\main\views.py:142
+#: .\main\views.py:64 .\main\views.py:77 .\main\views.py:93
+#: .\main\views.py:113 .\main\views.py:130 .\main\views.py:150
+#: .\main\views.py:160
 msgid "Not connected"
 msgstr "לא מחובר"
 
-#: .\main\views.py:63 .\main\views.py:83 .\main\views.py:100
-#: .\main\views.py:115 .\main\views.py:145
+#: .\main\views.py:80 .\main\views.py:100 .\main\views.py:118
+#: .\main\views.py:133 .\main\views.py:163
 msgid "File not found"
 msgstr "קובץ לא נמצא"
 
-#: .\main\views.py:79
+#: .\main\views.py:96
 msgid "Unknown student"
 msgstr "תלמיד לא יודע"
 
-#: .\main\views.py:97
+#: .\main\views.py:115
 msgid "Not a POST request"
 msgstr "לא בקשת POST"
 
-#: .\main\views.py:107 .\main\views.py:127
+#: .\main\views.py:125 .\main\views.py:145
 msgid "You're not allowed to perform this action"
 msgstr "את/ה לא מורשה/ת לעשות זאת"
 
-#: .\main\views.py:123
+#: .\main\views.py:141
 msgid "The file has been shared!"
 msgstr "הקובץ שותף!"
 
-#: .\main\views.py:125
+#: .\main\views.py:143
 msgid "The file has been unshared!"
 msgstr "שיתוף הקובץ בוטל!"
 
-#: .\main\views.py:134
+#: .\main\views.py:152
 msgid "File with that name already exists"
 msgstr "קובץ בעל שם זהה כבר קיים"
 
-#: .\main\views.py:150
+#: .\main\views.py:168
 msgid "You're not allowed to do it"
 msgstr "את/ה לא מורשה/ת לעשות זאת"
 
-#: .\templates\login.html:5 .\templates\login.html.py:28
-#: .\templates\login.html:35
+#: .\templates\login.html:5 .\templates\login.html.py:31
+#: .\templates\login.html:38
 msgid "Login"
 msgstr "התחבר"
 
-#: .\templates\login.html:33
+#: .\templates\login.html:36
 msgid "Username"
 msgstr "שם משתמש"
 
-#: .\templates\login.html:34
+#: .\templates\login.html:37
 msgid "Password"
 msgstr "סיסמה"
 
-#: .\templates\login.html:37
+#: .\templates\login.html:40
 msgid "Please talk with the teacher."
 msgstr "אנא דבר עם המורה."
 
-#: .\templates\login.html:37
+#: .\templates\login.html:40
 msgid "Forgot your password?"
 msgstr "שחכת/ה את הסיסמה?"
 
-#: .\templates\main.html:24
+#: .\templates\main.html:27
 msgid "File"
 msgstr "קובץ"
 
-#: .\templates\main.html:26
+#: .\templates\main.html:29
 msgid "New file"
 msgstr "קובץ חדש"
 
-#: .\templates\main.html:27
+#: .\templates\main.html:30
 msgid "Save"
 msgstr "שמור"
 
-#: .\templates\main.html:28
+#: .\templates\main.html:31
 msgid "Delete file"
 msgstr "מחק קובץ"
 
-#: .\templates\main.html:31
+#: .\templates\main.html:34
 msgid "Tests"
 msgstr "בדיקות"
 
-#: .\templates\main.html:37
+#: .\templates\main.html:39
 msgid "Run"
 msgstr "הפעל"
 
-#: .\templates\main.html:39
+#: .\templates\main.html:41
 msgid "Run code"
 msgstr "הרץ קוד"
 
-#: .\templates\main.html:40
+#: .\templates\main.html:42
 msgid "Stop running code"
 msgstr "הפסק הרצת הקוד"
 
-#: .\templates\main.html:43 .\templates\main.html.py:45
-#: .\templates\main.html:47
+#: .\templates\main.html:45 .\templates\main.html.py:47
 msgid "Coming soon..."
 msgstr "בקרוב..."
 
-#: .\templates\main.html:43
+#: .\templates\main.html:45
 msgid "Forums"
 msgstr "פורומים"
 
-#: .\templates\main.html:45
+#: .\templates\main.html:47
 msgid "Messages"
 msgstr "הודעות"
 
-#: .\templates\main.html:47
+#: .\templates\main.html:49 .\templates\main.html.py:72
+#: .\templates\settings.html:4
 msgid "Settings"
 msgstr "הגדרות"
 
-#: .\templates\main.html:49
+#: .\templates\main.html:51
 msgid "Logout"
 msgstr "התנתק"
 
-#: .\templates\main.html:56
+#: .\templates\main.html:59
 msgid "Share this file with the class"
 msgstr "שתף את הקובץ עם הכיתה"
 
-#: .\templates\main.html:59
+#: .\templates\main.html:61
 msgid "My files:"
 msgstr "הקבצים שלי:"
 
-#: .\templates\main.html:63
+#: .\templates\main.html:65
 msgid "Shared with me:"
 msgstr "משותף איתי:"
 
-#: .\templates\main.html:81
+#: .\templates\main.html:83
 msgid "Input / Output"
 msgstr "קלט / פלט"
+
+#: .\templates\settings.html:15
+msgid "Language"
+msgstr "שפה"
+
+#: .\templates\settings.html:22
+msgid "OK"
+msgstr "אישור"
+
+#: .\templates\settings.html:22
+msgid "Cancel"
+msgstr "ביטול"
+
+#: .\templates\settings.html:22
+msgid "Apply"
+msgstr "החל"
 
 #: .\templates\admin\base_site.html:4
 msgid "PectoStudio admin site"
