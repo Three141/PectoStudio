@@ -329,3 +329,7 @@ footer {
     background: none;
     box-sizing: border-box;
 }
+
+#forum {
+    padding-top: 50px;
+}

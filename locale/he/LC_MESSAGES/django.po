@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PectoStudio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-19 15:50+0200\n"
-"PO-Revision-Date: 2014-02-19 15:50+0200\n"
+"POT-Creation-Date: 2014-02-20 15:02+0200\n"
+"PO-Revision-Date: 2014-02-20 15:02+0200\n"
 "Last-Translator: Gal <gal123iv@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -17,6 +17,42 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.4\n"
+
+#: .\forum\models.py:7
+msgid "Title"
+msgstr "כותרת"
+
+#: .\forum\models.py:8 .\forum\models.py:24
+msgid "Author"
+msgstr "יוצר"
+
+#: .\forum\models.py:9 .\forum\models.py:25
+msgid "Time"
+msgstr "זמן"
+
+#: .\forum\models.py:10 .\forum\models.py:26 .\main\models.py:40
+msgid "Data"
+msgstr "מידע"
+
+#: .\forum\models.py:19
+msgid "message"
+msgstr "הודעה"
+
+#: .\forum\models.py:20
+msgid "messages"
+msgstr "הודעות"
+
+#: .\forum\models.py:27
+msgid "On"
+msgstr "על"
+
+#: .\forum\models.py:33
+msgid "comment"
+msgstr "תגובה"
+
+#: .\forum\models.py:34
+msgid "comments"
+msgstr "תגובות"
 
 #: .\main\models.py:7
 msgid "Base user"
@@ -37,10 +73,6 @@ msgstr "תלמידים"
 #: .\main\models.py:39 .\main\models.py:56
 msgid "Name"
 msgstr "שם"
-
-#: .\main\models.py:40
-msgid "Data"
-msgstr "מידע"
 
 #: .\main\models.py:41
 msgid "Owner"
@@ -199,21 +231,17 @@ msgstr "משותף איתי:"
 msgid "Input / Output"
 msgstr "קלט / פלט"
 
-#: .\templates\settings.html:15
+#: .\templates\settings.html:16
 msgid "Language"
 msgstr "שפה"
 
-#: .\templates\settings.html:22
-msgid "OK"
-msgstr "אישור"
-
-#: .\templates\settings.html:22
-msgid "Cancel"
-msgstr "ביטול"
-
-#: .\templates\settings.html:22
+#: .\templates\settings.html:23
 msgid "Apply"
 msgstr "החל"
+
+#: .\templates\settings.html:23
+msgid "Cancel"
+msgstr "ביטול"
 
 #: .\templates\admin\base_site.html:4
 msgid "PectoStudio admin site"
@@ -222,6 +250,22 @@ msgstr "אתר ניהול PectoStudio"
 #: .\templates\admin\base_site.html:7
 msgid "PectoStudio administration"
 msgstr "ניהול PectoStudio"
+
+#: .\templates\forum\index.html:5
+msgid "Forum"
+msgstr "פורום"
+
+#: .\templates\forum\index.html:27
+msgid "Return to the editor"
+msgstr "חזור לעורך"
+
+#: .\templates\forum\index.html:37
+#, python-format
+msgid "Posted by %(author)s"
+msgstr "פורסם על ידי %(author)s"
+
+#~ msgid "OK"
+#~ msgstr "אישור"
 
 #~ msgid "Layout"
 #~ msgstr "מראה"

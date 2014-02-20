@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static i18n humanize %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block title %}{% trans "Forum" %}{% endblock %}
+{% block data %}
+    <div id="forum">
+        <ul id="message-list">
+            {% for message in message_list %}
+            <li>
+                <a href="message/{{ message.id }}/">{{ message }}</a>
+                <div>{% blocktrans with author=message.author %}Posted by {{ author }}{% endblocktrans %}, {{ message.datetime|naturaltime }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

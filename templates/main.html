@@ -1,58 +1,36 @@
-<!DOCTYPE html>{% load static i18n %}{% get_current_language_bidi as LANGUAGE_BIDI %}
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>PectoStudio</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/main.css" %}">
-    {% if not LANGUAGE_BIDI %}
-    <link rel="stylesheet" href="{% static "css/ltr.css" %}">
-    {% endif %}
-    <script src="{% url "django.views.i18n.javascript_catalog" %}"></script>
-    <script src="{% static "js/jquery.js" %}"></script>
-    <script src="{% static "js/jquery.cookie.js" %}"></script>
-    <script src="{% static "js/ide_languages.js" %}"></script>
-    <script src="{% static "js/ide_keymap.js" %}"></script>
-    <script src="{% static "js/ide_popups.js" %}"></script>
-    <script src="{% static "js/ide_console.js" %}"></script>
-    <script src="{% static "js/ide_files.js" %}"></script>
-    <script src="{% static "js/numberfy.js" %}"></script>
-</head>
-<body>
-    <header>
-        <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.66 ALPHA  -  <span id="filename">N/A</span></div>
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">{% trans "File" %}</a>
-                    <ul>
-                        <li><a href="#" onclick="newFile()">{% trans "New file" %}</a></li>
-                        <li><a href="#" onclick="saveFile()">{% trans "Save" %}</a></li>
-                        <li><a href="#" onclick="deleteFile()">{% trans "Delete file" %}</a></li>
-                    </ul>
-                </li><li>
-                    <a href="#">{% trans "Tests" %}</a>
-                    <ul>
-                        <li><a href="#" onclick="printf(scanf('מה ברצונך לעשות?'))">דוגמאת פלט</a></li>
-                    </ul>
-                </li><li>
-                    <a href="#">{% trans "Run" %}</a>
-                    <ul>
-                        <li><a href="#" onclick="runCode()">{% trans "Run code" %}</a></li>
-                        <li><a href="#" onclick="stopCode()">{% trans "Stop running code" %}</a></li>
-                    </ul>
-                </li><li>
-                    <a href="#" onclick="alert('{% trans "Coming soon..." %}')">{% trans "Forums" %}</a>
-                </li><li>
-                    <!--<a href="#" onclick="alert('{% trans "Coming soon..." %}')">{% trans "Messages" %}</a>
-                </li><li>-->
-                    <a href="#" onclick="showSettings()">{% trans "Settings" %}</a>
-                </li><li>
-                    <a href="{% url 'logout' %}">{% trans "Logout" %}</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+{% extends "base.html" %}
+{% load static i18n %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block doc-title %}  -  <span id="filename">N/A</span>{% endblock %}
+{% block nav-menu %}
+<ul>
+    <li>
+        <a href="#">{% trans "File" %}</a>
+        <ul>
+            <li><a href="#" onclick="newFile()">{% trans "New file" %}</a></li>
+            <li><a href="#" onclick="saveFile()">{% trans "Save" %}</a></li>
+            <li><a href="#" onclick="deleteFile()">{% trans "Delete file" %}</a></li>
+        </ul>
+    </li><li>
+        <a href="#">{% trans "Tests" %}</a>
+        <ul>
+            <li><a href="#" onclick="printf(scanf('מה ברצונך לעשות?'))">דוגמאת פלט</a></li>
+        </ul>
+    </li><li>
+        <a href="#">{% trans "Run" %}</a>
+        <ul>
+            <li><a href="#" onclick="runCode()">{% trans "Run code" %}</a></li>
+            <li><a href="#" onclick="stopCode()">{% trans "Stop running code" %}</a></li>
+        </ul>
+    </li><li>
+        <a href="/forum/">{% trans "Forums" %}</a>
+    </li><li>
+        <a href="#" onclick="showSettings()">{% trans "Settings" %}</a>
+    </li><li>
+        <a href="{% url 'logout' %}">{% trans "Logout" %}</a>
+    </li>
+</ul>
+{% endblock %}
+{% block data %}
     <aside id="sidebar">
         <div id="to-share-id">
             <input type="checkbox" id="to-share" onchange="shareFile()">
@@ -83,5 +61,4 @@
         <div id="cons-title">{% trans "Input / Output" %}</div>
         <textarea id="console" disabled></textarea>
     </footer>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static i18n humanize %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block title %}{{ message.title }}{% endblock %}
+{% block data %}
+    <div id="forum">
+        <a href="/forum/">{% trans "Back to the forum's main page..." %}</a>
+        <div id="main-message">
+            <h1>{{ message }}</h1>
+            <h2>{% blocktrans with author=message.author.get_name %}Posted by {{ author }}{% endblocktrans %}</h2>
+            <h3>{{ message.datetime|naturaltime }}</h3>
+            <div>{{ message.data|safe }}</div>
+        </div>
+        <ul id="comments">
+            {% for comment in message.get_comments %}
+            <li>
+                <div>{% blocktrans with author=comment.author.get_name %}Posted by {{ author }}{% endblocktrans %}, {{ comment.datetime|naturaltime }}</div>
+                <div>{{ comment }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

@@ -10,6 +10,9 @@ class Student(models.Model):
     def __unicode__(self):
         return self.user.get_username() + " | " + self.user.get_full_name()
 
+    def get_name(self):
+        return self.user.get_full_name()
+
     def get_student_files(self):
         my_files = ProgramFile.objects.filter(owner=self)
         my_files_names = []

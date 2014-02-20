@@ -14,5 +14,6 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
     url(r'^jsi18n/$', 'django.views.i18n.javascript_catalog', js_info_dict),
+    url(r'^forum/', include('forum.urls')),
     url(r'^', include('main.urls')),
 )

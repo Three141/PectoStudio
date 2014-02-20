@@ -1,0 +1,47 @@
+<!DOCTYPE html>{% load static i18n humanize %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>PectoStudio - {% block title %}{% trans "Editor" %}{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static "css/main.css" %}">
+    {% if not LANGUAGE_BIDI %}
+    <link rel="stylesheet" href="{% static "css/ltr.css" %}">
+    {% endif %}
+    <script src="{% url "django.views.i18n.javascript_catalog" %}"></script>
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/jquery.cookie.js" %}"></script>
+    <script src="{% static "js/ide_languages.js" %}"></script>
+    <script src="{% static "js/ide_keymap.js" %}"></script>
+    <script src="{% static "js/ide_popups.js" %}"></script>
+    <script src="{% static "js/ide_console.js" %}"></script>
+    <script src="{% static "js/ide_files.js" %}"></script>
+    <script src="{% static "js/numberfy.js" %}"></script>
+</head>
+<body>
+    <header>
+        <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.7 ALPHA{% block doc-title %}{% endblock %}</div>
+        <nav>
+            {% block nav-menu %}
+            <ul>
+                <li>
+                    <a href="/">{% trans "Return to the editor" %}</a>
+                </li>
+            </ul>
+            {% endblock %}
+        </nav>
+    </header>
+    {% block data %}
+    <div id="forum">
+        <ul id="message-list">
+            {% for message in message_list %}
+            <li>
+                <a href="message/{{ message.id }}/">{{ message }}</a>
+                <div>{% blocktrans with author=message.author %}Posted by {{ author }}{% endblocktrans %}, {{ message.datetime|naturaltime }}</div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endblock %}
+</body>
+</html>
