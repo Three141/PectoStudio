@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PectoStudio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-20 15:02+0200\n"
-"PO-Revision-Date: 2014-02-20 15:02+0200\n"
+"POT-Creation-Date: 2014-02-20 20:09+0200\n"
+"PO-Revision-Date: 2014-02-20 20:09+0200\n"
 "Last-Translator: Gal <gal123iv@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -18,39 +18,47 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.4\n"
 
-#: .\forum\models.py:7
+#: .\forum\admin.py:12 .\forum\models.py:26 .\main\models.py:8
+msgid "Class"
+msgstr "כיתה"
+
+#: .\forum\models.py:7 .\templates\forum\newpost.html:11
 msgid "Title"
 msgstr "כותרת"
 
-#: .\forum\models.py:8 .\forum\models.py:24
+#: .\forum\models.py:8 .\forum\models.py:34
 msgid "Author"
 msgstr "יוצר"
 
-#: .\forum\models.py:9 .\forum\models.py:25
+#: .\forum\models.py:9 .\forum\models.py:35
 msgid "Time"
 msgstr "זמן"
 
-#: .\forum\models.py:10 .\forum\models.py:26 .\main\models.py:40
+#: .\forum\models.py:10 .\forum\models.py:36 .\main\models.py:43
 msgid "Data"
 msgstr "מידע"
 
-#: .\forum\models.py:19
+#: .\forum\models.py:21
+msgid "Number of comments"
+msgstr "מספר תגובות"
+
+#: .\forum\models.py:29
 msgid "message"
 msgstr "הודעה"
 
-#: .\forum\models.py:20
+#: .\forum\models.py:30
 msgid "messages"
 msgstr "הודעות"
 
-#: .\forum\models.py:27
+#: .\forum\models.py:37
 msgid "On"
 msgstr "על"
 
-#: .\forum\models.py:33
+#: .\forum\models.py:43
 msgid "comment"
 msgstr "תגובה"
 
-#: .\forum\models.py:34
+#: .\forum\models.py:44
 msgid "comments"
 msgstr "תגובות"
 
@@ -58,47 +66,43 @@ msgstr "תגובות"
 msgid "Base user"
 msgstr "משתמש בסיס"
 
-#: .\main\models.py:8
-msgid "Class"
-msgstr "כיתה"
-
-#: .\main\models.py:34
+#: .\main\models.py:37
 msgid "Student"
 msgstr "תלמיד"
 
-#: .\main\models.py:35
+#: .\main\models.py:38
 msgid "Students"
 msgstr "תלמידים"
 
-#: .\main\models.py:39 .\main\models.py:56
+#: .\main\models.py:42 .\main\models.py:59
 msgid "Name"
 msgstr "שם"
 
-#: .\main\models.py:41
+#: .\main\models.py:44
 msgid "Owner"
 msgstr "בעלים"
 
-#: .\main\models.py:42
+#: .\main\models.py:45
 msgid "Shared with class"
 msgstr "משותף עם הכיתה"
 
-#: .\main\models.py:51
+#: .\main\models.py:54
 msgid "file"
 msgstr "קובץ"
 
-#: .\main\models.py:52
+#: .\main\models.py:55
 msgid "files"
 msgstr "קבצים"
 
-#: .\main\models.py:57
+#: .\main\models.py:60
 msgid "Teachers"
 msgstr "מורים"
 
-#: .\main\models.py:63
+#: .\main\models.py:66
 msgid "class"
 msgstr "כיתה"
 
-#: .\main\models.py:64
+#: .\main\models.py:67
 msgid "classes"
 msgstr "כיתות"
 
@@ -141,6 +145,20 @@ msgstr "קובץ בעל שם זהה כבר קיים"
 msgid "You're not allowed to do it"
 msgstr "את/ה לא מורשה/ת לעשות זאת"
 
+#: .\templates\base.html:5
+msgid "Editor"
+msgstr "עורך"
+
+#: .\templates\base.html:30
+msgid "Return to the editor"
+msgstr "חזור לעורך"
+
+#: .\templates\base.html:42 .\templates\forum\index.html:14
+#: .\templates\forum\message.html:11 .\templates\forum\message.html.py:20
+#, python-format
+msgid "Posted by %(author)s"
+msgstr "פורסם על ידי %(author)s"
+
 #: .\templates\login.html:5 .\templates\login.html.py:31
 #: .\templates\login.html:38
 msgid "Login"
@@ -162,72 +180,64 @@ msgstr "אנא דבר עם המורה."
 msgid "Forgot your password?"
 msgstr "שחכת/ה את הסיסמה?"
 
-#: .\templates\main.html:27
+#: .\templates\main.html:7
 msgid "File"
 msgstr "קובץ"
 
-#: .\templates\main.html:29
+#: .\templates\main.html:9
 msgid "New file"
 msgstr "קובץ חדש"
 
-#: .\templates\main.html:30
+#: .\templates\main.html:10
 msgid "Save"
 msgstr "שמור"
 
-#: .\templates\main.html:31
+#: .\templates\main.html:11
 msgid "Delete file"
 msgstr "מחק קובץ"
 
-#: .\templates\main.html:34
+#: .\templates\main.html:14
 msgid "Tests"
 msgstr "בדיקות"
 
-#: .\templates\main.html:39
+#: .\templates\main.html:19
 msgid "Run"
 msgstr "הפעל"
 
-#: .\templates\main.html:41
+#: .\templates\main.html:21
 msgid "Run code"
 msgstr "הרץ קוד"
 
-#: .\templates\main.html:42
+#: .\templates\main.html:22
 msgid "Stop running code"
 msgstr "הפסק הרצת הקוד"
 
-#: .\templates\main.html:45 .\templates\main.html.py:47
-msgid "Coming soon..."
-msgstr "בקרוב..."
-
-#: .\templates\main.html:45
+#: .\templates\main.html:25
 msgid "Forums"
 msgstr "פורומים"
 
-#: .\templates\main.html:47
-msgid "Messages"
-msgstr "הודעות"
-
-#: .\templates\main.html:49 .\templates\main.html.py:72
+#: .\templates\main.html:27 .\templates\main.html.py:50
 #: .\templates\settings.html:4
 msgid "Settings"
 msgstr "הגדרות"
 
-#: .\templates\main.html:51
+#: .\templates\main.html:29
 msgid "Logout"
 msgstr "התנתק"
 
-#: .\templates\main.html:59
+#: .\templates\main.html:37
 msgid "Share this file with the class"
 msgstr "שתף את הקובץ עם הכיתה"
 
-#: .\templates\main.html:61
+#: .\templates\main.html:39
 msgid "My files:"
 msgstr "הקבצים שלי:"
 
-#: .\templates\main.html:65
+#: .\templates\main.html:43
 msgid "Shared with me:"
 msgstr "משותף איתי:"
 
-#: .\templates\main.html:83
+#: .\templates\main.html:61
 msgid "Input / Output"
 msgstr "קלט / פלט"
 
@@ -251,18 +261,48 @@ msgstr "אתר ניהול PectoStudio"
 msgid "PectoStudio administration"
 msgstr "ניהול PectoStudio"
 
-#: .\templates\forum\index.html:5
+#: .\templates\forum\index.html:3
 msgid "Forum"
 msgstr "פורום"
 
-#: .\templates\forum\index.html:27
-msgid "Return to the editor"
-msgstr "חזור לעורך"
+#: .\templates\forum\index.html:5
+msgid "Post a message"
+msgstr "פרסם הודעה"
 
-#: .\templates\forum\index.html:37
+#: .\templates\forum\index.html:15
 #, python-format
-msgid "Posted by %(author)s"
-msgstr "פורסם על ידי %(author)s"
+msgid "%(comment_number)s comments."
+msgstr "%(comment_number)s תגובות."
+
+#: .\templates\forum\message.html:5 .\templates\forum\newpost.html:5
+msgid "All messages"
+msgstr "כל ההודעות"
+
+#: .\templates\forum\message.html:16
+msgid "Comments"
+msgstr "תגובות"
+
+#: .\templates\forum\message.html:25
+msgid "There is no comments"
+msgstr "לא קיימות תגובות"
+
+#: .\templates\forum\message.html:29
+msgid "Write a comment"
+msgstr "כתוב/י תגובה"
+
+#: .\templates\forum\message.html:31 .\templates\forum\newpost.html:14
+msgid "Post"
+msgstr "פרסם"
+
+#: .\templates\forum\newpost.html:3 .\templates\forum\newpost.html.py:9
+msgid "New post"
+msgstr "הודעה חדשה"
+
+#~ msgid "Coming soon..."
+#~ msgstr "בקרוב..."
+
+#~ msgid "Messages"
+#~ msgstr "הודעות"
 
 #~ msgid "OK"
 #~ msgstr "אישור"

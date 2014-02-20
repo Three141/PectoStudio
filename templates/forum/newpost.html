@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static i18n humanize %}{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block title %}{% trans "New post" %}{% endblock %}
+{% block added-nav-links %}
+    <li><a href="/forum/">{% trans "All messages" %}</a></li>
+{% endblock %}
+{% block data %}
+    <div id="forum">
+        <h1>{% trans "New post" %}...</h1>
+        <form method="post">{% csrf_token %}
+            <label for="title-id">{% trans "Title" %}:</label>
+            <input type="text" id="title-id" name="title">
+            <textarea name="data"></textarea>
+            <input type="submit" value="{% trans "Post" %}">
+        </form>
+    </div>
+{% endblock %}

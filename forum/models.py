@@ -15,6 +15,16 @@ class Message(models.Model):
     def get_comments(self):
         return self.comment_set.all().order_by('datetime')
 
+    def get_comments_len(self):
+        return self.comment_set.count()
+    get_comments_len.allow_tags = True
+    get_comments_len.short_description = _("Number of comments")
+
+    def get_class(self):
+        return self.author.classroom
+    get_class.allow_tags = True
+    get_class.short_description = _("Class")
+
     class Meta:
         verbose_name = _('message')
         verbose_name_plural = _('messages')

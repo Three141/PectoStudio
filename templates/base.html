@@ -20,10 +20,12 @@
 </head>
 <body>
     <header>
-        <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.7 ALPHA{% block doc-title %}{% endblock %}</div>
+        <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.7{% block doc-title %}{% endblock %}</div>
         <nav>
             {% block nav-menu %}
             <ul>
+                {% block added-nav-links %}
+                {% endblock %}
                 <li>
                     <a href="/">{% trans "Return to the editor" %}</a>
                 </li>
