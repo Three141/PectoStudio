@@ -94,7 +94,7 @@ RegularExpressionLiteral {RegularExpressionBody}\/{RegularExpressionFlags}
 "עבור"                              return "FOR";
 "פעולה"                         return "FUNCTION";
 "אם"                               return "IF";
-"ב"                               return "IN";
+"בתוך"                               return "IN";
 "מופע של"                       return "INSTANCEOF";
 "חדש"                              parser.restricted = false; return "NEW";
 "החזר"                           parser.restricted = true; return "RETURN";
@@ -116,8 +116,10 @@ RegularExpressionLiteral {RegularExpressionBody}\/{RegularExpressionFlags}
 "ייצא"                           return "EXPORT";
 "ממשיך"                          return "EXTENDS";
 "ייבא"                           return "IMPORT";
+"בקש"							  return "ASKINPUT";
 "קלוט ל"						  return "INPUT";
 "הדפס את"						  return "OUTPUT";
+"הדפס"						      return "OUTPUT";
 "סופר"                            return "SUPER";
 {DecimalLiteral}                   parser.restricted = false; return "NUMERIC_LITERAL";
 {HexIntegerLiteral}                parser.restricted = false; return "NUMERIC_LITERAL";
@@ -128,8 +130,8 @@ RegularExpressionLiteral {RegularExpressionBody}\/{RegularExpressionFlags}
 ")"                                return ")";
 "["                                parser.restricted = false; return "[";
 "]"                                return "]";
-"."                                return ".";
-";"                                parser.restricted = false; return ";";
+"<-"                                return ".";
+"."                                parser.restricted = false; return ";";
 ","                                return ",";
 "?"                                return "?";
 ":"                                return ":";
@@ -474,6 +476,25 @@ OutputStatement
 	| "OUTPUT" Expression error
 		{
 			$$ = new OutputStatementNode($2, createSourceLocation(null, @1, @2));
+		}
+	;
+	
+InputStatement
+	: "INPUT" IDENTIFIER ";"
+		{
+			$$ = new InputStatementNode($2, null, createSourceLocation(null, @1, @3));
+		}
+	| "INPUT" IDENTIFIER error
+		{
+			$$ = new InputStatementNode($2, null, createSourceLocation(null, @1, @2));
+		}
+	| "INPUT" IDENTIFIER "ASKINPUT" Expression ";"
+		{
+			$$ = new InputStatementNode($2, $4, createSourceLocation(null, @1, @5));
+		}
+	| "INPUT" IDENTIFIER "ASKINPUT" Expression error
+		{
+			$$ = new InputStatementNode($2, $4, createSourceLocation(null, @1, @4));
 		}
 	;
 	
@@ -1675,6 +1696,13 @@ function OutputStatementNode(argument, loc) {
 	this.loc = loc;
 }
 
+function InputStatementNode(identifier, expression, loc) {
+	this.type = "InputStatement";
+	this.identifier = identifier;
+	this.expression = expression;
+	this.loc = loc;
+}
+
 
 function ThrowStatementNode(argument, loc) {
 	this.type = "ThrowStatement";
@@ -1918,6 +1946,7 @@ parser.ast.WithStatementNode = WithStatementNode;
 parser.ast.SwitchStatementNode = SwitchStatementNode;
 parser.ast.ReturnStatementNode = ReturnStatementNode;
 parser.ast.OutputStatementNode = OutputStatementNode;
+parser.ast.InputStatementNode = InputStatementNode;
 parser.ast.ThrowStatementNode = ThrowStatementNode;
 parser.ast.TryStatementNode = TryStatementNode;
 parser.ast.WhileStatementNode = WhileStatementNode;
