@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PectoScript 5.1 Parser</title>
+  <meta charset="UTF-8" />
+  <script src="newpecto.js"></script>
+  <script src="print.js"></script>
+  <script>
+    "use strict";
+
+    window.addEventListener("load", function() {
+      document.getElementById("parse").addEventListener("click", function() {
+        var input = document.getElementById("input");
+        var output = document.getElementById("output");
+        var program;
+
+        try {
+          program = newpecto.parse(input.value);
+          output.value = program.print("", "  ");
+        } catch (exception) {
+          output.value = exception.name + ":  " + exception.message;
+        }
+      }, false);
+    }, false);
+  </script>
+</head>
+<body>
+  PectoScript Input:<br />
+  <textarea dir="rtl" style="width:100%;" rows="10" id="input"></textarea>
+  <br />
+  <input id="parse" type="button" value="Parse" />
+  <br /><br />
+  Parser Output:<br />
+  <textarea style="width:100%;" rows="10" id="output"></textarea>
+  <br /><br />
+</body>
+</html>
