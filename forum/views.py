@@ -14,6 +14,7 @@ def index(req):
 
     return render(req, 'forum/index.html', {
         'message_list': messages,
+        'user': req.user.student,
     })
 
 
@@ -33,6 +34,7 @@ def message(req, id):
 
     return render(req, 'forum/message.html', {
         'message': message_item,
+        'user': req.user.student,
     })
 
 
@@ -49,4 +51,6 @@ def new_message(req):
             post.save()
             return HttpResponseRedirect('/forum/message/'+str(post.id)+'/')
 
-    return render(req, 'forum/newpost.html')
+    return render(req, 'forum/newpost.html', {
+        'user': req.user.student,
+    })

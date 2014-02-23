@@ -1,30 +1,21 @@
 {% extends "base.html" %}
 {% load static i18n %}{% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block doc-title %}  -  <span id="filename">N/A</span>{% endblock %}
+{% block doc-title %}<span id="filename">N/A</span>{% endblock %}
 {% block nav-menu %}
 <ul>
     <li>
-        <a href="#">{% trans "File" %}</a>
+        <a href="javascript:void(0)">{% trans "File" %}</a>
         <ul>
-            <li><a href="#" onclick="newFile()">{% trans "New file" %}</a></li>
-            <li><a href="#" onclick="saveFile()">{% trans "Save" %}</a></li>
-            <li><a href="#" onclick="deleteFile()">{% trans "Delete file" %}</a></li>
+            <li><a href="javascript:void(0)" onclick="newFile()">{% trans "New file" %}</a></li>
+            <li><a href="javascript:void(0)" onclick="saveFile()">{% trans "Save" %}</a></li>
+            <li><a href="javascript:void(0)" onclick="deleteFile()">{% trans "Delete file" %}</a></li>
         </ul>
     </li><li>
-        <a href="#">{% trans "Tests" %}</a>
-        <ul>
-            <li><a href="#" onclick="printf(scanf('מה ברצונך לעשות?'))">דוגמאת פלט</a></li>
-        </ul>
-    </li><li>
-        <a href="#">{% trans "Run" %}</a>
-        <ul>
-            <li><a href="#" onclick="runCode()">{% trans "Run code" %}</a></li>
-            <li><a href="#" onclick="stopCode()">{% trans "Stop running code" %}</a></li>
-        </ul>
+        <a href="javascript:void(0)" onclick="runCode()">{% trans "Run" %}</a>
     </li><li>
         <a href="/forum/">{% trans "Forums" %}</a>
     </li><li>
-        <a href="#" onclick="showSettings()">{% trans "Settings" %}</a>
+        <a href="javascript:void(0)" onclick="showSettings()">{% trans "Settings" %}</a>
     </li><li>
         <a href="{% url 'logout' %}">{% trans "Logout" %}</a>
     </li>

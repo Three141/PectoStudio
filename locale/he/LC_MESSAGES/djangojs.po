@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PectoStudio\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-19 15:48+0200\n"
-"PO-Revision-Date: 2014-02-19 15:49+0200\n"
+"POT-Creation-Date: 2014-02-23 22:22+0200\n"
+"PO-Revision-Date: 2014-02-23 22:23+0200\n"
 "Last-Translator: Gal <gal123iv@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
@@ -17,6 +17,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Poedit 1.6.4\n"
+
+#: .\main\s\js\ide_console.js:21
+#, c-format
+msgid "Program starts"
+msgstr "התוכנה מתחילה"
+
+#: .\main\s\js\ide_console.js:23
+#, c-format
+msgid "Program ended"
+msgstr "התוכנה הסתיימה"
 
 #: .\main\s\js\ide_files.js:49
 msgid "Do you want to save the file before exit?"

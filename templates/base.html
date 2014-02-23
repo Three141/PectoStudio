@@ -17,10 +17,12 @@
     <script src="{% static "js/ide_console.js" %}"></script>
     <script src="{% static "js/ide_files.js" %}"></script>
     <script src="{% static "js/numberfy.js" %}"></script>
+    <script src="{% static "js/newpecto.js" %}"></script>
+    <script src="{% static "js/print.js" %}"></script>
 </head>
 <body>
     <header>
-        <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 0.7{% block doc-title %}{% endblock %}</div>
+        <div id="doc-title"><img src="{% static "img/logo.png" %}" alt="PectoStudio">PectoStudio 1.0 BETA  -  {{ user.get_name }}  -  {% block doc-title %}{% trans "Forums" %}{% endblock %}</div>
         <nav>
             {% block nav-menu %}
             <ul>

@@ -38,9 +38,7 @@ class ClassListFilter(admin.SimpleListFilter):
         return queryset.filter(author__classroom__name=self.value())
 
 
-
 class MessageAdmin(admin.ModelAdmin):
-    date_hierarchy = 'datetime'
     list_filter = (ClassListFilter, 'author',)
     list_display = ('title', 'author', 'get_comments_len', 'get_class',)
     inlines = [

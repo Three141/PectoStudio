@@ -34,6 +34,7 @@ def index(req):
 
 def home_logon(req):
     return render(req, 'main.html', {
+        'user': req.user.student,
     })
 
 
