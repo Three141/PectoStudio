@@ -116,6 +116,8 @@ RegularExpressionLiteral {RegularExpressionBody}\/{RegularExpressionFlags}
 "ייצא"                           return "EXPORT";
 "ממשיך"                          return "EXTENDS";
 "ייבא"                           return "IMPORT";
+"קלוט ל"						  return "INPUT";
+"הדפס את"						  return "OUTPUT";
 "סופר"                            return "SUPER";
 {DecimalLiteral}                   parser.restricted = false; return "NUMERIC_LITERAL";
 {HexIntegerLiteral}                parser.restricted = false; return "NUMERIC_LITERAL";
@@ -206,6 +208,8 @@ Statement
     | ThrowStatement
     | TryStatement
     | DebuggerStatement
+	| InputStatement
+	| OutputStatement
     ;
 
 Block
@@ -461,7 +465,18 @@ SwitchStatement
             $$ = new SwitchStatementNode($3, $5, createSourceLocation(null, @1, @5));
         }
     ;
-
+	
+OutputStatement
+	: "OUTPUT" Expression ";"
+		{
+			$$ = new OutputStatementNode($2, createSourceLocation(null, @1, @3));
+		}
+	| "OUTPUT" Expression error
+		{
+			$$ = new OutputStatementNode($2, createSourceLocation(null, @1, @2));
+		}
+	;
+	
 CaseBlock
     : "{" CaseClauses "}"
         {
@@ -1654,6 +1669,13 @@ function ReturnStatementNode(argument, loc) {
 	this.loc = loc;
 }
 
+function OutputStatementNode(argument, loc) {
+	this.type = "OutputStatement";
+	this.argument = argument;
+	this.loc = loc;
+}
+
+
 function ThrowStatementNode(argument, loc) {
 	this.type = "ThrowStatement";
 	this.argument = argument;
@@ -1895,6 +1917,7 @@ parser.ast.ContinueStatementNode = ContinueStatementNode;
 parser.ast.WithStatementNode = WithStatementNode;
 parser.ast.SwitchStatementNode = SwitchStatementNode;
 parser.ast.ReturnStatementNode = ReturnStatementNode;
+parser.ast.OutputStatementNode = OutputStatementNode;
 parser.ast.ThrowStatementNode = ThrowStatementNode;
 parser.ast.TryStatementNode = TryStatementNode;
 parser.ast.WhileStatementNode = WhileStatementNode;

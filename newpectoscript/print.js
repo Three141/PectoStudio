@@ -117,6 +117,15 @@
 		return str + ";";
 	};
 
+	ast.OutputStatementNode.prototype.print = function(indent, indentChar) {
+		var str = indent + "printf(";
+		var argument = this.argument;
+
+		if (argument !== null)
+			str += argument.print("", "");
+			
+		return str + ");";
+	};
 	ast.ThrowStatementNode.prototype.print = function(indent, indentChar) {
 		var str = indent + "throw";
 		var argument = this.argument;
