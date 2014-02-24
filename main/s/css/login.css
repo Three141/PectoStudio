@@ -64,7 +64,7 @@ body {
     height: inherit;
 }
 #mainContent {
-	width: 1080px;
+	width: 800px;
     height: inherit;
 	margin: 0 auto;
 	position: relative;
@@ -72,7 +72,7 @@ body {
 #mainContent div {
 	display: inline-block;
     vertical-align: middle;
-	width: 529px;
+	width: 392px;
     box-sizing: border-box;
 }
 #mainContent #line {
@@ -89,7 +89,7 @@ body {
 	text-align: center;
 	font-weight: bold;
 	font-family: "Exo 2", "Helvetica", "Helvetica Neue", "Alef Hebrew", Arial, sans-serif !important;
-	font-size: 72px;
+	font-size: 56px;
 }
 #name-n-logo span {
 	margin: 0;
@@ -123,7 +123,7 @@ body {
 	padding: 8px 10px;
 	color: #ffffff;
     border: none;
-	margin: 20px 414px 30px 0;
+	margin: 20px 282px 30px 0;
     box-sizing: border-box;
 	cursor: pointer;
     border-radius: 0;
