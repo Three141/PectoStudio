@@ -6,6 +6,10 @@ function printf(str) {
     $("#console").animate({ scrollTop: $(document).height() }, "fast");
 }
 
+function isNumeric(n) {
+  return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 function scanf(title) {
     title = title==undefined?"":title;
     var out = prompt(title, "");
