@@ -11,7 +11,7 @@ function scanf(title) {
     var out = prompt(title, "");
     out = out==null?"":out;
     printf(">>> "+out);
-    return out;
+    return isNumeric(out)?parseFloat(out):out;
 }
 
 function runCode() {
